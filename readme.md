@@ -8,3 +8,6 @@ Project description here
 
 ## Group Members / Credits
 Jose Ruiz
+Phouthasak Douanglee
+Thom Cohers
+Roger Cornell
