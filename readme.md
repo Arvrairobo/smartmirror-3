@@ -7,7 +7,7 @@ Project description here
 ## To Do List
 
 ## Group Members / Credits
-Jose Ruiz
-Phouthasak Douanglee
-Thom Cohers
+Jose Ruiz  
+Phouthasak Douanglee  
+Thom Cohers  
 Roger Cornell
