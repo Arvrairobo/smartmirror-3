@@ -1,0 +1,22 @@
+{
+  "name": "smartmirror",
+  "version": "1.0.0",
+  "description": "Project description here",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmaruiz/smartmirror.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmaruiz/smartmirror/issues"
+  },
+  "homepage": "https://github.com/jmaruiz/smartmirror#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
