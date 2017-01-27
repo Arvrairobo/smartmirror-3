@@ -3,6 +3,9 @@ var express = require("express");
 var app = express();
 var path = require("path");
 var fs = require("fs");
+var weather = require("weather-js");
+
+var zipCode = '43612';
 
 app.use("/css", express.static(path.resolve(__dirname + "/css")));
 app.use("/js", express.static(path.resolve(__dirname + "/js")));
@@ -10,6 +13,13 @@ app.use("/widgets", express.static(path.resolve(__dirname + "/widgets")));
 
 app.get('/', function(req, res) {
 	res.send(fs.readFileSync(path.resolve(__dirname + "/index.html"), {encoding: "utf8"}));
+});
+
+app.get('/weather', function(req, res) {
+	weather.find({search: zipCode, degreeType: 'F'}, function(err, result) {
+		if(err) console.log(err);
+		res.send(result);
+	});
 });
 
 app.listen(8080, function() {
