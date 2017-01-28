@@ -36,3 +36,9 @@ body {
 	font-size: 25px;
 	margin: 0 10px;
 }
+
+#dateAndTime *{
+	font-weight: 200;
+	line-height: 1;
+	font-size: 100px;
+}
