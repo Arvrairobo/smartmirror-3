@@ -8,6 +8,7 @@ var weather = require("weather-js");
 var zipCode = '43612';
 
 app.use("/css", express.static(path.resolve(__dirname + "/css")));
+app.use("/font", express.static(path.resolve(__dirname + "/font")));
 app.use("/js", express.static(path.resolve(__dirname + "/js")));
 app.use("/widgets", express.static(path.resolve(__dirname + "/widgets")));
 

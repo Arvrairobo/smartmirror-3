@@ -7,6 +7,7 @@ $(document).ready(function() {
 		w = ret[0];
 		$('#weather #temp').html(w.current.temperature + "&deg;F");
 		$('#weather #location').html(w.location.name);
-		$('#weather #wind').html(w.current.winddisplay);
+		$('#weather #wind').html(w.current.skytext);
+		$('#weather #wind').prepend("<i class='wi wi-yahoo-"+w.current.skycode+"'></i>");
 	});
 });
