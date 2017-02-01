@@ -35,8 +35,8 @@ function renderDate(){
   		"Nov.", "Dec."
   	];
 	
-	var dayOfWeek = [ "Mon.", "Tues.", "Wed.",
-		"Thur.", "Fri.", "Sat.", "Sun."
+	var dayOfWeek = [ "Mon", "Tues", "Wed",
+		"Thur", "Fri", "Sat", "Sun"
 	];
 	var date = new Date();
 	var dayNumber = date.getDate();
@@ -44,7 +44,7 @@ function renderDate(){
 	var year = date.getFullYear();
 	var dayIndex = date.getDay();
 
-	$('#date').html(dayOfWeek[dayIndex] + " " + monthNames[monthIndex] + " " + dayNumber + ", " + year);
+	$('#date').html(dayOfWeek[dayIndex] + ", " + monthNames[monthIndex] + " " + dayNumber + ", " + year);
 }
 
 renderClock();
