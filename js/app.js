@@ -41,7 +41,7 @@ function renderClock(){
 		seconds = "0" + seconds;
 	}
 	
-	$('#clock').html(hour + ":" + min + ":" + seconds + " " + period);
+	$('#clock').html(hour + ":" + min + "<span id='seconds'>" + seconds + "</span><span id='ampm'>" + period + "</span>");
 	setTimeout('renderClock()', 1000);
 }
 

@@ -1,18 +1,53 @@
+html, body {
+   height: 100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+}
 body {
 	background: #000;
 	color: #fff;
+	position: relative;
+}
+
+div#top-mid {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+div#top-left {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+div#top-right {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+div#bottom-mid {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+#welcome-message {
+	font-size: 40px;
+	font-weight: 200;
 }
 
 #weather {
 	margin: 15px;
 	float: left;
 }
-
 #weather * {
 	font-weight: 200;
 	line-height: 1;
 }
-
 #weather #temp {
 	margin: 0;
 	font-size: 150px;
@@ -31,14 +66,29 @@ body {
 	font-size: 25px;
 	text-align: right;
 }
-
 #weather i {
 	font-size: 25px;
 	margin: 0 10px;
 }
 
 #dateAndTime *{
-	font-weight: 200;
 	line-height: 1;
-	font-size: 100px;
+	margin: 15px;
 }
+#dateAndTime #clock {
+	font-weight: 300;
+	font-size: 90px;
+}
+#dateAndTime #clock #seconds {
+	font-size: 40px;
+	margin-left: 5px;
+	vertical-align: super;
+}
+#dateAndTime #clock #ampm {
+	font-size:;
+}
+#dateAndTime #date {
+	font-size: 50px;
+	font-weight: 200;
+}
+
