@@ -70,6 +70,23 @@ div#bottom-mid {
 	font-size: 25px;
 	margin: 0 10px;
 }
+#weather #forecast {
+	float: right;
+	clear: both;
+	text-align: center;
+	margin-top: 15px;
+}
+#weather #forecast * {
+	font-weight: 300;
+	font-size: 15px;
+}
+#weather #forecast .col {
+	padding: 0 5px;
+}
+#weather #forecast .col + .col + .col + .col { padding: 0 0 0 5px; margin-right: -5px; }
+#weather #forecast i {
+	margin: 8px 10px;
+}
 
 #dateAndTime *{
 	line-height: 1;
