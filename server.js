@@ -23,6 +23,13 @@ app.get('/weather', function(req, res) {
 	});
 });
 
+app.get('/config', function(req, res) {
+	fs.readFile('./config.json', 'utf8', function(err, data){
+		if(err) console.log(err);
+		res.send(JSON.parse(data));
+	});
+});
+
 app.listen(8080, function() {
 	console.log('Server running on port 8080!');
 	console.log('Visit http://localhost:8080/ to view.');

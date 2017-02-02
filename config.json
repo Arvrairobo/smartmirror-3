@@ -1,0 +1,49 @@
+[
+  {
+    "topLeft": {
+      "module": "Time and Date",
+      "script": "today.js",
+      "location": "top-left"
+    },
+    "topMid": {
+      "module": "",
+      "script": "",
+      "location": "top-mid"
+    },
+    "topRight": {
+      "module": "Weather",
+      "script": "weather.js",
+      "location": "top-right"
+    },
+    "midLeft": {
+      "module": "",
+      "script": "",
+      "location": "mid-left"
+    },
+    "midMid": {
+      "module": "",
+      "script": "",
+      "location": "mid-mid"
+    },
+    "midRight": {
+      "module": "",
+      "script": "",
+      "location": "mid-right"
+    },
+    "bottomLeft": {
+      "module": "",
+      "script": "",
+      "location": "bottom-left"
+    },
+    "bottomMid": {
+      "module": "Welcome Message",
+      "script": "welcome.js",
+      "location": "bottom-mid"
+    },
+    "bottomRight": {
+      "module": "",
+      "script": "",
+      "location": "bottom-right"
+    }
+  }
+]
