@@ -2,7 +2,7 @@
   {
     "topLeft": {
       "module": "Time and Date",
-      "script": "today.js",
+      "script": "../widgets/today/today.js",
       "location": "top-left"
     },
     "topMid": {
@@ -12,7 +12,7 @@
     },
     "topRight": {
       "module": "Weather",
-      "script": "weather.js",
+      "script": "../widgets/weather/weather.js",
       "location": "top-right"
     },
     "midLeft": {
@@ -37,7 +37,7 @@
     },
     "bottomMid": {
       "module": "Welcome Message",
-      "script": "welcome.js",
+      "script": "../widgets/welcome/welcome.js",
       "location": "bottom-mid"
     },
     "bottomRight": {
