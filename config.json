@@ -1,49 +1,44 @@
 [
   {
-    "topLeft": {
-      "module": "Time and Date",
+    "spot1": {
+      "module": "dateAndTime",
       "script": "../widgets/today/today.js",
-      "location": "top-left"
+      "location": "spot1"
     },
-    "topMid": {
+    "spot2": {
       "module": "",
       "script": "",
-      "location": "top-mid"
+      "location": "spot2"
     },
-    "topRight": {
-      "module": "Weather",
+    "spot3": {
+      "module": "weather",
       "script": "../widgets/weather/weather.js",
-      "location": "top-right"
+      "location": "spot3"
     },
-    "midLeft": {
+    "spot4": {
       "module": "",
       "script": "",
-      "location": "mid-left"
+      "location": "spot4"
     },
-    "midMid": {
+    "spot5": {
       "module": "",
       "script": "",
-      "location": "mid-mid"
+      "location": "spot5"
     },
-    "midRight": {
+    "spot6": {
       "module": "",
       "script": "",
-      "location": "mid-right"
+      "location": "spot6"
     },
-    "bottomLeft": {
-      "module": "",
-      "script": "",
-      "location": "bottom-left"
-    },
-    "bottomMid": {
-      "module": "Welcome Message",
+    "spot7": {
+      "module": "welcome-message",
       "script": "../widgets/welcome/welcome.js",
-      "location": "bottom-mid"
+      "location": "spot7"
     },
-    "bottomRight": {
+    "spot8": {
       "module": "",
       "script": "",
-      "location": "bottom-right"
+      "location": "spot7"
     }
   }
 ]

@@ -13,6 +13,7 @@ function loadWelcomeMessage(messages) {
 	var rand = Math.floor(Math.random() * messages.length);
 	var choice = messages[rand];
 	$(htmlId).html(choice);
+	$(htmlId).addClass('center-align');
 }
 
 loadWelcomeMessage(messages);

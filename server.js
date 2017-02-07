@@ -6,7 +6,7 @@ var fs = require("fs");
 var weather = require("weather-js");
 
 //variables
-global.config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 var zipCode = '43612';
 
 app.use("/css", express.static(path.resolve(__dirname + "/css")));
@@ -26,10 +26,7 @@ app.get('/weather', function(req, res) {
 });
 
 app.get('/config', function(req, res) {
-	fs.readFile('./config.json', 'utf8', function(err, data){
-		if(err) console.log(err);
-		res.send(JSON.parse(data));
-	});
+	res.send(config);
 });
 
 app.listen(8080, function() {

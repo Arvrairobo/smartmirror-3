@@ -10,24 +10,24 @@ body {
 	position: relative;
 }
 
-div#top-mid {
+div#spot2 {
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
 }
-div#top-left {
+div#spot1 {
 	position: absolute;
 	top: 0;
 	left: 0;
 }
-div#top-right {
+div#spot3 {
 	position: absolute;
 	top: 0;
 	right: 0;
 }
-div#bottom-mid {
+div#spot7 {
 	position: absolute;
 	bottom: 0;
 	left: 0;

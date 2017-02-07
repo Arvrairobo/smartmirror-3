@@ -1,3 +1,7 @@
+function wrapperSetup(){
+	$('#dateAndTime').html('<div id="clock"></div><div id="date"></div>');
+}
+
 function renderClock(){
 	var currentTime = new Date();
 	var period = "AM";
@@ -47,5 +51,6 @@ function renderDate(){
 	$('#date').html(dayOfWeek[dayIndex] + ", " + monthNames[monthIndex] + " " + dayNumber + ", " + year);
 }
 
+wrapperSetup();
 renderClock();
 renderDate();
