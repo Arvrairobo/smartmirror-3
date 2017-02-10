@@ -17,15 +17,16 @@ $(document).ready(function() {
 		//within each individual script, they will only add elements to the wrapper
 		for(var i = 0; i < modulesToLoad.length; i++){
 			addWidgetWrapper(modulesToLoad[i]);
-			addWidget(modulesToLoad[i].script);
 		}
 	});
 
 	//add wrapper div to dom to prepare for widgets
 	//which will be added in addWidget function
-	function addWidgetWrapper(module){
+	function addWidgetWrapper(module, finished){
 		var $spotDivTag = $('#' + module.location);
 		$spotDivTag.html('<div id="'+module.module+'"></div>');
+
+		addWidget(module.script)
 	}
 	
 	//add widget amongst their specified location

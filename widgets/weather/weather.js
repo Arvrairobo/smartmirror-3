@@ -1,11 +1,10 @@
 $.get('/weather', function(ret) {
 
-	wrapperSetup();
-	addWidget(ret[0]);
-	console.log("called");
+	wrapperSetup(ret);
+	console.log("weather setup called");
 });
 
-function wrapperSetup(){
+function wrapperSetup(weatherdata){
 	$('#weather').html(`<div id="temp"></div>
 		<div id="location"></div>
 		<div id="wind"></div>
@@ -45,6 +44,7 @@ function wrapperSetup(){
 				</div>
 			</div>
 		</div>`);
+		addWidget(weatherdata[0]);
 }
 
 function addWidget(weather){

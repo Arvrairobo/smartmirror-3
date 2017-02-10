@@ -6,7 +6,7 @@ var fs = require("fs");
 var weather = require("weather-js");
 
 //variables
-var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+var config = require('./config.json');
 var zipCode = '43612';
 
 app.use("/css", express.static(path.resolve(__dirname + "/css")));
@@ -26,11 +26,10 @@ app.get('/weather', function(req, res) {
 });
 
 app.get('/config', function(req, res) {
-	res.send(config);
+	res.send(JSON.parse(fs.readFileSync('config.json', 'utf8')));
 });
 
 app.listen(8080, function() {
 	console.log('Server running on port 8080!');
 	console.log('Visit http://localhost:8080/ to view.');
 });
-
