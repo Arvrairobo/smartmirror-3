@@ -10,6 +10,12 @@ body {
 	position: relative;
 }
 
+
+div#spot1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 div#spot2 {
 	position: absolute;
 	top: 0;
@@ -17,15 +23,29 @@ div#spot2 {
 	right: 0;
 	margin: 0 auto;
 }
-div#spot1 {
-	position: absolute;
-	top: 0;
-	left: 0;
-}
 div#spot3 {
 	position: absolute;
 	top: 0;
 	right: 0;
+}
+div#spot4 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto 0;
+}
+div#spot5 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto 0;
+}
+div#spot6 {
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
 div#spot7 {
 	position: absolute;
@@ -34,6 +54,12 @@ div#spot7 {
 	right: 0;
 	margin: 0 auto;
 }
+div#spot8 {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
 
 #welcome-message {
 	font-size: 40px;
@@ -107,4 +133,15 @@ div#spot7 {
 #dateAndTime #date {
 	font-size: 50px;
 	font-weight: 200;
+}
+
+#news {
+  text-align: right;
+  float: right;
+}
+#news .news-item {
+  width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

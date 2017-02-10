@@ -36,9 +36,9 @@
       "location": "spot7"
     },
     "spot8": {
-      "module": "",
-      "script": "",
-      "location": "spot7"
+      "module": "news",
+      "script": "../widgets/news/news.js",
+      "location": "spot8"
     }
   }
 ]

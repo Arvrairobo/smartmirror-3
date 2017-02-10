@@ -3,9 +3,12 @@ var express = require("express");
 var app = express();
 var path = require("path");
 var fs = require("fs");
+var superagent = require('superagent-cache')();
+
+//node package for weather widget
 var weather = require("weather-js");
 
-//variables
+//user variables
 var config = require('./config.json');
 var zipCode = '43612';
 
@@ -23,6 +26,17 @@ app.get('/weather', function(req, res) {
 		if(err) console.log(err);
 		res.send(result);
 	});
+});
+
+app.get('/news', function(req, res) {
+	var uri = "https://newsapi.org/v1/articles?source=google-news&apiKey=2608f524434e4e2fb24546a02bcf624d";
+	superagent
+	  .get(uri)
+	  .end(function (err, response){
+	    // response is now cached, subsequent calls to this superagent request will now fetch the cached response
+			res.send(response.body);
+	  }
+	);
 });
 
 app.get('/config', function(req, res) {
