@@ -26,8 +26,8 @@
       "location": "spot5"
     },
     "spot6": {
-      "module": "",
-      "script": "",
+      "module": "stocks",
+      "script": "../widgets/stocks/stocks.js",
       "location": "spot6"
     },
     "spot7": {

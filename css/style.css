@@ -145,3 +145,17 @@ div#spot8 {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+#stocks{
+	margin: 15px;
+	text-align: left;
+	font-weight: 300;
+}
+#stockHeader{
+	font-size: 20px;
+}
+#stockList{
+	margin-top: 0px;
+}
+#stockList li{
+	border-top: 1px solid;
+}

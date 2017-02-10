@@ -4,13 +4,14 @@ var app = express();
 var path = require("path");
 var fs = require("fs");
 var superagent = require('superagent-cache')();
-
+var YahooFinanceAPI = require('yahoo-finance-data');
 //node package for weather widget
 var weather = require("weather-js");
 
 //user variables
 var config = require('./config.json');
 var zipCode = '43612';
+var yahooAPI = new YahooFinanceAPI();
 
 app.use("/css", express.static(path.resolve(__dirname + "/css")));
 app.use("/font", express.static(path.resolve(__dirname + "/font")));
@@ -37,6 +38,15 @@ app.get('/news', function(req, res) {
 			res.send(response.body);
 	  }
 	);
+});
+
+//reminder to obtain stockList info from config.json later
+var stockList = ['GOOG','AAPL','YHOO','TSLA']; 
+app.get('/stocks', function(req, res) {
+	yahooAPI.getQuote(stockList).then(function(result){
+		res.send(result.quote);
+	});
+	
 });
 
 app.get('/config', function(req, res) {

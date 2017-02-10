@@ -1,7 +1,13 @@
-$.get('/weather', function(ret) {
-
-	wrapperSetup(ret);
-	console.log("weather setup called");
+//have to make it syncronous or else it will interfere with stocks.js
+$.getJSON({
+	type: 'GET',
+	dataType: "json",
+	async: false,
+	url: 'http://localhost:8080/weather',
+	success: function(data){
+		wrapperSetup(data);
+		console.log("weather");
+	}
 });
 
 function wrapperSetup(weatherdata){

@@ -8,7 +8,6 @@ $.get('/news', function(response){
     headlines[i] = response.articles[i].title;
   });
 
-  console.log(headlines);
   addNewsWidget(headlines);
 });
 
