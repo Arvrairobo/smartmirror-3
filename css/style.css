@@ -149,6 +149,24 @@ div#spot8 {
 	margin: 15px;
 	text-align: left;
 	font-weight: 300;
+	max-height: 250px;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+#stocks::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+#stocks::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+#stocks::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
 }
 #stockHeader{
 	font-size: 20px;
@@ -158,4 +176,5 @@ div#spot8 {
 }
 #stockList li{
 	border-top: 1px solid;
+	margin-right: 5px;
 }

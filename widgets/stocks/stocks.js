@@ -15,8 +15,7 @@ function wrapperSetup(stockData){
 }
 
 function addWidget(stocks){
-	var limit = 3;
-	for(var i = 0; i < limit; i++){
+	for(var i = 0; i < stocks.length; i++){
 		var stockSymbol = stocks[i].Symbol;
 		var stockAsk = stocks[i].Ask;
 		var stockChange = stocks[i].Change;
