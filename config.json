@@ -12,7 +12,7 @@
     },
     "spot3": {
       "module": "weather",
-      "script": "../widgets/weather/weather.js",
+      "script": "",
       "location": "spot3"
     },
     "spot4": {
@@ -37,7 +37,7 @@
     },
     "spot8": {
       "module": "news",
-      "script": "../widgets/news/news.js",
+      "script": "",
       "location": "spot8"
     }
   }

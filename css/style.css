@@ -149,7 +149,7 @@ div#spot8 {
 	margin: 15px;
 	text-align: left;
 	font-weight: 300;
-	max-height: 250px;
+	max-height: 200px;
 	overflow: hidden;
 	overflow-y: scroll;
 }
@@ -160,6 +160,7 @@ div#spot8 {
 }
 #stocks::-webkit-scrollbar
 {
+	display: none;
 	width: 10px;
 	background-color: #F5F5F5;
 }

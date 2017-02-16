@@ -28,6 +28,7 @@ function addWidget(stocks){
 				<div id="stockGain">`+stockChange+ ` (`+stockChangePercent+`)</div>
 			</li>`);
 	}
+	divScrollDown();
 	setInterval('updateInfo()', 30000);
 }
 
@@ -45,5 +46,23 @@ function updateInfo(){
 			console.log("Updated");
 		}
 			
+	});
+}
+
+function divScrollDown(){
+	var $stocksDiv = $('#stocks');
+	$stocksDiv.animate({
+		scrollTop: $stocksDiv.get(0).scrollHeight
+	}, 5000, function(){
+		divScrollUp();
+	});
+}
+
+function divScrollUp(){
+	var $stocksDiv = $('#stocks');
+	$stocksDiv.animate({
+		scrollTop: 0
+	}, 5000, function(){
+		divScrollDown();
 	});
 }
