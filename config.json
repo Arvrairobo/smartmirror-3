@@ -21,8 +21,8 @@
       "location": "spot4"
     },
     "spot5": {
-      "module": "",
-      "script": "",
+      "module": "ootd",
+      "script": "../widgets/ootd/ootd.js",
       "location": "spot5"
     },
     "spot6": {
