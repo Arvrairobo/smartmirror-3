@@ -49,7 +49,7 @@ div#spot6 {
 }
 div#spot7 {
 	position: absolute;
-	bottom: 0;
+	bottom: 300px;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
@@ -138,12 +138,23 @@ div#spot8 {
 #news {
   text-align: right;
   float: right;
+  padding: 15px;
+}
+#news .news-title {
+  font-size: 30px;
+  font-weight: 200;
 }
 #news .news-item {
   width: 500px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 20px;
+}
+#news .news-desc {
+  width: 500px;
+  overflow: hidden;
+  font-size: 14px;
 }
 #stocks{
 	margin: 15px;
