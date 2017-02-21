@@ -140,11 +140,17 @@ div#spot8 {
   float: right;
   padding: 15px;
 }
-#news .news-title {
+#news .news-header {
   font-size: 30px;
   font-weight: 200;
 }
 #news .news-item {
+  width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#news .news-title {
   width: 500px;
   white-space: nowrap;
   overflow: hidden;
@@ -154,6 +160,7 @@ div#spot8 {
 #news .news-desc {
   width: 500px;
   overflow: hidden;
+  white-space: normal;
   font-size: 14px;
 }
 #stocks{
