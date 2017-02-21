@@ -47,6 +47,7 @@ div#spot6 {
 	position: absolute;
 	bottom: 0;
 	left: 0;
+	text-align: left;
 }
 div#spot7 {
 	position: absolute;
@@ -165,8 +166,7 @@ div#spot8 {
   font-size: 14px;
 }
 #stocks{
-	margin: 15px;
-	text-align: left;
+	margin: 0px 15px 15px 15px;
 	font-weight: 300;
 	max-height: 200px;
 	overflow: hidden;
@@ -190,6 +190,7 @@ div#spot8 {
 }
 #stockHeader{
 	font-size: 20px;
+	margin: 15px 15px 0px 15px;
 }
 #stockList{
 	margin-top: 0px;

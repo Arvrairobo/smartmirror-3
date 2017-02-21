@@ -10,7 +10,8 @@ $.getJSON({
 });
 
 function wrapperSetup(stockData){
-	$('#stocks').html('<div id"stockHeader">Stocks:</div><ul id="stockList"></ul>');
+	$('#stocks').before('<div id="stockHeader"><strong>Stocks</strong></div>');
+	$('#stocks').html('<ul id="stockList"></ul>');
 	addWidget(stockData);
 }
 
