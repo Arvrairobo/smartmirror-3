@@ -6,6 +6,9 @@ $.getJSON({
 	url: 'http://localhost:8080/stocks',
 	success: function(data){
 		wrapperSetup(data);
+	},
+	fail: function(data){
+		$.getJSON(this);
 	}
 });
 

@@ -36,7 +36,6 @@ $.getJSON({
 	async: false,
 	url: 'http://localhost:8080/weather',
 	success: function(data){
-    console.log("ootd");
 		wrapperSetup(data);
 	}
 });

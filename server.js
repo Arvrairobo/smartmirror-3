@@ -16,8 +16,6 @@ var weather = require("weather-js");
 
 //user variables
 var config = require('./config.json');
-var zipCode = '43612';
-
 
 app.use("/css", express.static(path.resolve(__dirname + "/css")));
 app.use("/font", express.static(path.resolve(__dirname + "/font")));
@@ -29,33 +27,61 @@ app.get('/', function(req, res) {
 });
 
 app.get('/weather', function(req, res) {
-	weather.find({search: zipCode, degreeType: 'F'}, function(err, result) {
-		if(err) console.log(err);
-		res.send(result);
-	});
+	var zipCode = null;
+	var type = null;
+	for(var item in config[0]){
+		if(config[0][item].module.trim() === "weather"){
+			zipCode = config[0][item].parameters[0].zipCode;
+			type = config[0][item].parameters[0].degreeType;
+		}
+	}
+
+	if((zipCode !== null) && (type !== null)){
+		weather.find({search: zipCode, degreeType: type}, function(err, result) {
+			if(err) console.log(err);
+			res.send(result);
+		});
+	}
 });
 
 app.get('/news', function(req, res) {
-	var uri = "https://newsapi.org/v1/articles?source=google-news&apiKey=2608f524434e4e2fb24546a02bcf624d";
-	superagent
-	  .get(uri)
-	  .end(function (err, response){
-	    // response is now cached, subsequent calls to this superagent request will now fetch the cached response
-			res.send(response.body);
-	  }
-	);
+	var apiKey = null;
+	for(var item in config[0]){
+		if(config[0][item].module.trim() === "news"){
+			apiKey = config[0][item].parameters[0].apiKey;
+		}
+	}
+
+	var uri = "https://newsapi.org/v1/articles?source=google-news&apiKey=";
+	if(apiKey !== null){
+		superagent
+		  	.get(uri + apiKey)
+		  	.end(function (err, response){
+		    // response is now cached, subsequent calls to this superagent request will now fetch the cached response
+				res.send(response.body);
+	  		}
+		);	
+	}
 });
 
-//reminder to obtain stockList info from config.json later
-var stockList = ['GOOG','AAPL','YHOO','TSLA'];
 app.get('/stocks', function(req, res) {
-	yahooAPI.getQuote(stockList).then(function(result){
-		res.send(result.quote);
-	});
+	var stockList = null;
+	
+	for(var item in config[0]){
+		if(config[0][item].module.trim() === "stocks"){
+			stockList = config[0][item].parameters[0].stocksList;
+		}
+	}
 
+	if(stockList !== null){
+		yahooAPI.getQuote(stockList).then(function(result){
+			res.send(result.quote);
+		});
+	}
 });
 
 app.get('/config', function(req, res) {
+	config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 	res.send(JSON.parse(fs.readFileSync('config.json', 'utf8')));
 });
 

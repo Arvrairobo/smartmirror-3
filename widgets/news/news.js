@@ -1,5 +1,3 @@
-// API KEY: 2608f524434e4e2fb24546a02bcf624d
-
 var headlines = [];
 var limit = 5;
 

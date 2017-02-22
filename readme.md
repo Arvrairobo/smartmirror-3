@@ -2,8 +2,16 @@
 
 Project description here
 
-## Widgets
 
+## Widgets
+ - news
+ - outfit of the day (ootd)
+ - stocks
+ - clock (today)
+ - weather
+ - welcome
+ - calender
+ 
 ## To Do List
 
 ## Group Members / Credits
