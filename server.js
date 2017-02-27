@@ -26,6 +26,10 @@ app.get('/', function(req, res) {
 	res.send(fs.readFileSync(path.resolve(__dirname + "/index.html"), {encoding: "utf8"}));
 });
 
+app.get('/user-config', function(req, res) {
+	res.send(fs.readFileSync(path.resolve(__dirname + "/user-config.html"), {encoding: "utf8"}));
+});
+
 app.get('/weather', function(req, res) {
 	var zipCode = null;
 	var type = null;
