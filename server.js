@@ -29,10 +29,10 @@ app.get('/', function(req, res) {
 app.get('/weather', function(req, res) {
 	var zipCode = null;
 	var type = null;
-	for(var item in config[0]){
-		if(config[0][item].module.trim() === "weather"){
-			zipCode = config[0][item].parameters[0].zipCode;
-			type = config[0][item].parameters[0].degreeType;
+	for(var item in config){
+		if(config[item].module.trim() === "weather"){
+			zipCode = config[item].parameters.zipCode;
+			type = config[item].parameters.degreeType;
 		}
 	}
 
@@ -46,9 +46,9 @@ app.get('/weather', function(req, res) {
 
 app.get('/news', function(req, res) {
 	var apiKey = null;
-	for(var item in config[0]){
-		if(config[0][item].module.trim() === "news"){
-			apiKey = config[0][item].parameters[0].apiKey;
+	for(var item in config){
+		if(config[item].module.trim() === "news"){
+			apiKey = config[item].parameters.apiKey;
 		}
 	}
 
@@ -60,16 +60,16 @@ app.get('/news', function(req, res) {
 		    // response is now cached, subsequent calls to this superagent request will now fetch the cached response
 				res.send(response.body);
 	  		}
-		);	
+		);
 	}
 });
 
 app.get('/stocks', function(req, res) {
 	var stockList = null;
-	
-	for(var item in config[0]){
-		if(config[0][item].module.trim() === "stocks"){
-			stockList = config[0][item].parameters[0].stocksList;
+
+	for(var item in config){
+		if(config[item].module.trim() === "stocks"){
+			stockList = config[item].parameters.stocksList;
 		}
 	}
 

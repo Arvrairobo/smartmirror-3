@@ -5,9 +5,9 @@ $(document).ready(function() {
 
 		//loop through return object
 		//grab only the one's with scripts
-		for(var item in ret[0]){
-			if(!(ret[0][item].script.trim() === "")){
-			 	modulesToLoad.push(ret[0][item]);
+		for(var item in ret){
+			if(!(ret[item].script.trim() === "")){
+			 	modulesToLoad.push(ret[item]);
 			}
 		}
 
