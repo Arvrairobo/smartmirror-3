@@ -33,7 +33,7 @@ function addWidget(stocks){
 			</li>`);
 	}
 	divScrollDown();
-	setInterval('updateInfo()', 30000);
+	setInterval('updateInfo()', 60000);
 }
 
 function updateInfo(){

@@ -1,0 +1,34 @@
+{
+  "command1": {
+    "command": "hello Sam",
+    "description": "Greeting message from voice recognition"
+  },
+  "command2": {
+    "command": "show me video of *",
+    "description": "Search for video of choice"
+  },
+  "command3": {
+    "command": "play video",
+    "description": "Start video"
+  },
+  "command4": {
+    "command": "pause video",
+    "description": "Pause video"
+  },
+  "command5": {
+    "command": "stop video",
+    "description": "Stop video"
+  },
+  "command6": {
+    "command": "mute video",
+    "description": "Mute/Unmute video"
+  },
+  "command7": {
+    "command": "clear",
+    "description": "Remove content from feedback area"
+  },
+  "command8": {
+    "command": "show commands",
+    "description": "List available commands"
+  }
+}

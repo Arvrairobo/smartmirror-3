@@ -21,10 +21,12 @@
     }
   },
   "spot4": {
-    "module": "",
-    "script": "",
+    "module": "voiceFeedback",
+    "script": "../widgets/voice/voice.js",
     "location": "spot4",
-    "parameters": {}
+    "parameters": {
+      "apiKey": "AIzaSyBDZv-as1aNncWvLnxzuzcB9_VI8fuFzqg"
+    }
   },
   "spot5": {
     "module": "ootd",

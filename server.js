@@ -14,6 +14,7 @@ var yahooAPI = new YahooFinanceAPI();
 //node package for weather widget
 var weather = require("weather-js");
 
+var youtube = require('youtube-search');
 //user variables
 var config = require('./config.json');
 
@@ -28,6 +29,33 @@ app.get('/', function(req, res) {
 
 app.get('/user-config', function(req, res) {
 	res.send(fs.readFileSync(path.resolve(__dirname + "/user-config.html"), {encoding: "utf8"}));
+});
+
+app.get('/youtube', function(req,res){
+  var videoQuery = req.query.subject;
+  var apiKey = null;
+  for(var item in config){
+		if(config[item].module.trim() === "voiceFeedback"){
+			apiKey = config[item].parameters.apiKey;
+		}
+	}
+  var opt = {
+    maxResults: 5,
+    type: 'video',
+    key: apiKey
+  }
+  if(apiKey !== null){
+  	youtube(videoQuery, opt, function(err, result){
+      if(err) return console.log(err)
+      
+      res.send(result);
+  	});
+  }
+  
+});
+
+app.get('/commands', function(req, res){
+	res.send(JSON.parse(fs.readFileSync('commands.json', 'utf8')));
 });
 
 app.get('/weather', function(req, res) {
