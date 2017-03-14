@@ -30,7 +30,7 @@
   },
   "spot5": {
     "module": "ootd",
-    "script": "../widgets/ootd/ootd.js",
+    "script": "../widgets/weather/weather.js",
     "location": "spot5",
     "parameters": {}
   },
@@ -43,8 +43,8 @@
     }
   },
   "spot7": {
-    "module": "welcome-message",
-    "script": "../widgets/welcome/welcome.js",
+    "module": "",
+    "script": "",
     "location": "spot7",
     "parameters": {}
   },

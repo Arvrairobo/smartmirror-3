@@ -4,7 +4,7 @@
     "description": "Greeting message from voice recognition"
   },
   "command2": {
-    "command": "show me video of *",
+    "command": "show video of *",
     "description": "Search for video of choice"
   },
   "command3": {

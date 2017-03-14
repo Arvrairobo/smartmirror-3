@@ -6,7 +6,6 @@ $.getJSON({
 	url: 'http://localhost:8080/weather',
 	success: function(data){
 		wrapperSetup(data);
-		console.log("weather");
 	}
 });
 

@@ -12,7 +12,7 @@ var YahooFinanceAPI = require('yahoo-finance-data');
 var yahooAPI = new YahooFinanceAPI();
 
 //node package for weather widget
-var weather = require("weather-js");
+var weather = require('weather-js');
 
 var youtube = require('youtube-search');
 //user variables
@@ -71,7 +71,7 @@ app.get('/weather', function(req, res) {
 	if((zipCode !== null) && (type !== null)){
 		weather.find({search: zipCode, degreeType: type}, function(err, result) {
 			if(err) console.log(err);
-			res.send(result);
+			res.send(JSON.stringify(result, null, 2));
 		});
 	}
 });

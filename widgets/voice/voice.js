@@ -1,11 +1,21 @@
 //global variables for youtube player
 var player = null, vidID, done = false;
+var messages = [
+    "Good morning!",
+    "Hey there good lookin'!",
+    "Long time no see.",
+    "You could use a cup of coffee..",
+    "Have a splendid day!",
+    "Thanks for using S.A.M. human!",
+    "Great outfit choice!"
+];
 
+loadWelcomeMessage(messages);
 if (annyang) {
   // Add our commands to annyang
   var commands = {
     'hello (sam)': helloResponse,
-    'show me (a) video(s) (of) *videoTitle': findVideo,
+    'show (me) (a) video(s) (of) *videoTitle': findVideo,
     'pause video': pauseVideo,
     'stop video': stopVideo,
     'play video': playVideo,
@@ -19,6 +29,15 @@ if (annyang) {
 
   // Start listening. You can call this here, or attach this call to an event, button, etc.
   annyang.start();
+}
+
+/*-----Welcoming Message-----*/
+function loadWelcomeMessage(messages) {
+    var htmlId = '#voiceFeedback';
+    var rand = Math.floor(Math.random() * messages.length);
+    var choice = messages[rand];
+    $(htmlId).html(choice);
+    $(htmlId).addClass('center-align');
 }
 
 /*-----Hello Command-----*/
