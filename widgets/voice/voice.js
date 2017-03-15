@@ -9,6 +9,7 @@ var messages = [
     "Thanks for using S.A.M. human!",
     "Great outfit choice!"
 ];
+var confirmbeep = new Audio('./widgets/voice/confirm.wav');
 
 loadWelcomeMessage(messages);
 if (annyang) {
@@ -48,6 +49,8 @@ function helloResponse() {
         "How can I help you?"
     ];
 
+    confirmbeep.play();
+
     var htmlId = '#voiceFeedback';
     var rand = Math.floor(Math.random() * messages.length);
     var choice = messages[rand];
@@ -57,9 +60,10 @@ function helloResponse() {
 
 /*-----Youtube Video Command----*/
 function findVideo(videoTitle) {
+    confirmbeep.play();
     var queryString = encodeURIComponent(videoTitle.trim());
     clearFeedbackArea();
-    $('#voiceFeedback').html('<div id="youtubeIframe"></div>');
+    $('#voiceFeedback').html('<div id="youtubeIframe">Loading Video...</div>');
     $.getJSON({
         type: 'GET',
         dataType: "json",
@@ -72,12 +76,13 @@ function findVideo(videoTitle) {
 }
 
 function addVideo(videoData) {
-	//setup youtube iframe api
+  //setup youtube iframe api
 	var $youtubeAPIScriptTag = $("<script>", {src: "https://www.youtube.com/iframe_api"});
 	$('script').first().before($youtubeAPIScriptTag);
     var rand = Math.floor(Math.random() * 5);
     vidID = videoData[rand].id;
     if(typeof window.YT !== 'undefined'){
+      $('#youtubeIframe').empty();
     	player = new window.YT.Player('youtubeIframe', {
         height: '230',
         width: '420',
@@ -87,7 +92,7 @@ function addVideo(videoData) {
         	}
     	});
     }
-    
+
 }
 
 //required by the youtubeIframeApi
@@ -105,57 +110,62 @@ function onYouTubeIframeAPIReady() {
 }
 
 function playVideo() {
+  confirmbeep.play();
 	if(player !== null) player.playVideo();
 }
 
 function stopVideo() {
-    if(player !== null) player.stopVideo();
+  confirmbeep.play();
+  if(player !== null) player.stopVideo();
 }
 
 function pauseVideo() {
-    if(player !== null) player.pauseVideo();
+  confirmbeep.play();
+  if(player !== null) player.pauseVideo();
 }
 
 function muteVideo(){
-	if(player !== null){
+  confirmbeep.play();
+  if(player !== null){
 		if(player.isMuted()){
 			player.unMute();
 		}else{
 			player.mute();
 		}
-	} 
+	}
 }
 
 /*-----Clean up commands----*/
 function clearFeedbackArea(){
-	player = null;
+  player = null;
 	$('#voiceFeedback').empty();
 }
 
 /*-----Help Commands-----*/
 function showCommands() {
-    clearFeedbackArea();
-    $('#voiceFeedback').html('<div id="commandsWrapper"><ul id="commands"></ul></div>');
-    $.getJSON({
-        type: 'GET',
-        dataType: "json",
-        async: false,
-        url: 'http://localhost:8080/commands',
-        success: function(data) {
-        	var $commandsList = $('#commands');
-            for (var item in data) {
-                $commandsList.append(`<li>
-				<div id="command"><strong>"`+data[item].command+`"</strong></div>
-				<div id="description">`+data[item].description+`</div>
-			</li>`)
-            }
-            
-        }
-    });
-    if ($('#commandsWrapper').height() > $('#voiceFeedback').height()) {
-	    setInterval(function() {
-	        start();
-	    }, 5000);
+  confirmbeep.play();
+  clearFeedbackArea();
+  $('#voiceFeedback').html('<div id="commandsWrapper"><ul id="commands"></ul></div>');
+  $.getJSON({
+      type: 'GET',
+      dataType: "json",
+      async: false,
+      url: 'http://localhost:8080/commands',
+      success: function(data) {
+      	var $commandsList = $('#commands');
+          for (var item in data) {
+              $commandsList.append(`<li>
+			<div id="command"><strong>"`+data[item].command+`"</strong></div>
+			<div id="description">`+data[item].description+`</div>
+		</li>`)
+          }
+
+      }
+  });
+  if ($('#commandsWrapper').height() > $('#voiceFeedback').height()) {
+    setInterval(function() {
+      start();
+    }, 5000);
 	}
 
 }
@@ -163,9 +173,7 @@ function showCommands() {
 /*-----Helper functions to make things look cool-----*/
 function animateContent(direction) {
     var animationOffset = $('#voiceFeedback').height() - $('#commandsWrapper').height();
-
     if (direction == 'up') animationOffset = 0;
-
     $('#commandsWrapper').animate({ "marginTop": (animationOffset) + "px" }, 5000);
 }
 

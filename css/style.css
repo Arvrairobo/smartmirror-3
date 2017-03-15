@@ -72,7 +72,7 @@ div#spot8 {
 }
 #weather #temp {
 	margin: 0;
-	font-size: 150px;
+	font-size: 100px;
 }
 #weather #temp span {
 	vertical-align: super;
@@ -203,7 +203,7 @@ div#spot8 {
 	font-size: 20px;
 	font-weight: 200;
 	height: 250px;
-	overflow: hidden;	
+	overflow: hidden;
 }
 #commands{
 	margin-top: 0px;
