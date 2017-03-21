@@ -22,7 +22,8 @@ if (annyang) {
     'play video': playVideo,
     'clear (video)': clearFeedbackArea,
     'mute video': muteVideo,
-    'show commands': showCommands
+    'show commands': showCommands,
+    'refresh': reloadPage
   };
 
   // Add our commands to annyang
@@ -141,6 +142,9 @@ function clearFeedbackArea(){
 	$('#voiceFeedback').empty();
 }
 
+function reloadPage(){
+  location.reload();
+}
 /*-----Help Commands-----*/
 function showCommands() {
   confirmbeep.play();
