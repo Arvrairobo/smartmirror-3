@@ -40,30 +40,50 @@ $.getJSON({
 	}
 });
 
-function wrapperSetup(weatherData){
-  var currentTemp = parseInt(weatherData[0].current.temperature);
-  var skyCode = weatherData[0].current.skycode;
-	$('#ootd').html('<div id="ootdHeader"><strong>OOTD</strong></div><div id="ootdPrompt"></div>');
-  if(currentTemp < 45 && currentTemp > 0){
-    addWidget(heavyWeather, skyCode);
-  }else if(currentTemp >= 45 && currentTemp <= 60){
-    addWidget(meduimWeather, skyCode);
-  }else if(currentTemp > 60){
-    addWidget(lightWeather, skyCode);
-  }else{
-    addWidget(extremeWeather, skyCode);
-  }
+function wrapperSetup(weatherData) {
+    $('#ootd').html('<div id="ootdHeader"><strong>OOTD</strong></div><div id="ootdPrompt"></div>');
+    addWidget(weatherData);
+    setInterval('updateOOTD()', 600000);
 }
 
-function addWidget(messages, skyCode){
-  var rand = Math.floor(Math.random() * messages.length);
-  var rand2 = Math.floor(Math.random() * rainWeather.length);
-  $('#ootdPrompt').html(messages[rand]);
 
-  if($.inArray(skyCode, rainCode) > -1){
-    $('#ootdPrompt').append("<br>" + rainWeather[rand2]);
-  }
-  
+function addWidget(weatherData) {
+    var currentTemp = parseInt(weatherData[0].current.temperature);
+    var skyCode = weatherData[0].current.skycode;
+    var rand;
+    var rand2 = Math.floor(Math.random() * rainWeather.length);
+
+    if (currentTemp < 45 && currentTemp > 0) {
+        rand = Math.floor(Math.random() * heavyWeather.length);
+        $('#ootdPrompt').html(heavyWeather[rand]);
+    } else if (currentTemp >= 45 && currentTemp <= 60) {
+        rand = Math.floor(Math.random() * meduimWeather.length);
+        $('#ootdPrompt').html(meduimWeather[rand]);
+    } else if (currentTemp > 60) {
+        rand = Math.floor(Math.random() * lightWeather.length);
+        $('#ootdPrompt').html(lightWeather[rand]);
+    } else {
+        rand = Math.floor(Math.random() * extremeWeather.length);
+        $('#ootdPrompt').html(extremeWeather[rand]);
+    }
+
+    if ($.inArray(skyCode, rainCode) > -1) {
+        $('#ootdPrompt').append("<br>" + rainWeather[rand2]);
+    }
+
+}
+
+function updateOOTD() {
+    $.getJSON({
+        type: 'GET',
+        dataType: "json",
+        async: false,
+        url: 'http://localhost:8080/weather',
+        success: function(data) {
+          addWidget(data);
+          console.log("OOTD updated");
+        }
+    });
 }
 
 /*0, 1 ,2, 3 ,4, 17, 35 - Thunderstorm

@@ -50,6 +50,7 @@ function wrapperSetup(weatherdata){
 			</div>
 		</div>`);
 		addWidget(weatherdata[0]);
+		setInterval('updateWeather()', 600000);
 }
 
 function addWidget(weather){
@@ -65,4 +66,17 @@ function addWidget(weather){
 		$('#forecast ' + dayTag + ' #skyIcon').html("<i class='wi wi-yahoo-"+weather.forecast[i].skycodeday+"'></i>");
 		$('#forecast ' + dayTag + ' #low').html(weather.forecast[i].low);
 	}
+}
+
+function updateWeather() {
+    $.getJSON({
+        type: 'GET',
+        dataType: "json",
+        async: false,
+        url: 'http://localhost:8080/weather',
+        success: function(data) {
+            addWidget(data[0]);
+            console.log("Weather updated");
+        }
+    });
 }

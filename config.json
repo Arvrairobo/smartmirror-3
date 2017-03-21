@@ -30,7 +30,7 @@
   },
   "spot5": {
     "module": "ootd",
-    "script": "../widgets/weather/weather.js",
+    "script": "../widgets/ootd/ootd.js",
     "location": "spot5",
     "parameters": {}
   },

@@ -1,4 +1,4 @@
-//have to make it syncronus or else it'll interfere with weather.js
+//have to make it syncronus or else it'll interfere with other widgets
 $.getJSON({
 	type: 'GET',
 	dataType: "json",
@@ -6,9 +6,6 @@ $.getJSON({
 	url: 'http://localhost:8080/stocks',
 	success: function(data){
 		wrapperSetup(data);
-	},
-	fail: function(data){
-		$.getJSON(this);
 	}
 });
 
@@ -23,33 +20,31 @@ function addWidget(stocks){
 		var stockSymbol = stocks[i].Symbol;
 		var stockAsk = stocks[i].Ask;
 		var stockChange = stocks[i].Change;
-		var stockChangePercent = stocks[i].ChangeinPercent;
-		var $stockList = $('#stockList');
+		var stockChangePercent = stocks[i].ChangeinPercent;		
 
-		$stockList.append(`<li id="`+stockSymbol+`">
+		$('#stockList').append(`<li id="`+stockSymbol+`">
 				<div id="stockName">`+stockSymbol+`</div>
 				<div id="stockPrice">$ `+parseFloat(stockAsk).toFixed(2)+`</div>
 				<div id="stockGain">`+stockChange+ ` (`+stockChangePercent+`)</div>
 			</li>`);
 	}
 	divScrollDown();
-	setInterval('updateInfo()', 60000);
+	setInterval('updateStocks()', 60000);
 }
 
-function updateInfo(){
+function updateStocks(){
 	$.getJSON({
 		type: 'GET',
 		dataType: "json",
 		url: 'http://localhost:8080/stocks',
+		async: false,
 		success: function(data){
-			var limit = 3
-				for(var i = 0; i < limit; i++ ){
-					$('#'+ data[0].symbol).find('#stockPrice').html('$ '+parseFloat(data[i].Ask).toFixed(2));
-					$('#'+ data[0].symbol).find('#stockGain').html(data[i].Change+ ' ('+data[i].ChangeinPercent+')');
-				}
-			console.log("Updated");
+			for (var i = 0; i < data.length; i++) {
+    			$('#' + data[0].symbol).find('#stockPrice').html('$ ' + parseFloat(data[i].Ask).toFixed(2));
+    			$('#' + data[0].symbol).find('#stockGain').html(data[i].Change + ' (' + data[i].ChangeinPercent + ')');
+			}
+			console.log("Stocks updated");
 		}
-			
 	});
 }
 

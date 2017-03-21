@@ -1,3 +1,13 @@
+var monthNames = ["Jan.", "Feb.", "Mar.",
+    "Apr.", "May", "June", "July",
+    "Aug.", "Sept.", "Oct.",
+    "Nov.", "Dec."
+];
+
+var dayOfWeek = ["Mon", "Tues", "Wed",
+    "Thur", "Fri", "Sat", "Sun"
+];
+
 function wrapperSetup(){
 	$('#dateAndTime').html('<div id="clock"></div><div id="date"></div>');
 }
@@ -33,15 +43,11 @@ function renderClock(){
 }
 
 function renderDate(){
-	var monthNames = [  "Jan.", "Feb.", "Mar.",
-  		"Apr.", "May", "June", "July",
-  		"Aug.", "Sept.", "Oct.",
-  		"Nov.", "Dec."
-  	];
-	
-	var dayOfWeek = [ "Mon", "Tues", "Wed",
-		"Thur", "Fri", "Sat", "Sun"
-	];
+	updateDate();	
+	setInterval('updateDate()', 600000);
+}
+
+function updateDate(){
 	var date = new Date();
 	var dayNumber = date.getDate();
 	var monthIndex = date.getMonth();
@@ -49,6 +55,7 @@ function renderDate(){
 	var dayIndex = date.getDay();
 
 	$('#date').html(dayOfWeek[dayIndex] + ", " + monthNames[monthIndex] + " " + dayNumber + ", " + year);
+	console.log("Date updated");	
 }
 
 wrapperSetup();
