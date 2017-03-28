@@ -1,59 +1,66 @@
 {
-  "spot1": {
-    "module": "today",
-    "script": "../widgets/today/today.js",
-    "location": "spot1",
-    "parameters": {}
-  },
-  "spot2": {
-    "module": "",
-    "script": "",
-    "location": "spot2",
-    "parameters": {}
-  },
-  "spot3": {
-    "module": "weather",
-    "script": "../widgets/weather/weather.js",
-    "location": "spot3",
-    "parameters": {
-      "zipCode" : "43612",
-      "degreeType" : "F"
+  "spots": {
+    "spot1": {
+      "module": "today",
+      "script": "../widgets/today/today.js",
+      "location": "spot1",
+      "parameters": {}
+    },
+    "spot2": {
+      "module": "",
+      "script": "",
+      "location": "spot2",
+      "parameters": {}
+    },
+    "spot3": {
+      "module": "weather",
+      "script": "../widgets/weather/weather.js",
+      "location": "spot3",
+      "parameters": {
+        "zipCode" : "43612",
+        "degreeType" : "F"
+      }
+    },
+    "spot4": {
+      "module": "voice",
+      "script": "../widgets/voice/voice.js",
+      "location": "spot4",
+      "parameters": {
+        "apiKey": "AIzaSyBDZv-as1aNncWvLnxzuzcB9_VI8fuFzqg"
+      }
+    },
+    "spot5": {
+      "module": "ootd",
+      "script": "../widgets/ootd/ootd.js",
+      "location": "spot5",
+      "parameters": {}
+    },
+    "spot6": {
+      "module": "stocks",
+      "script": "../widgets/stocks/stocks.js",
+      "location": "spot6",
+      "parameters": {
+        "stocksList": ["GOOG","AAPL","YHOO","TSLA"]
+      }
+    },
+    "spot7": {
+      "module": "",
+      "script": "",
+      "location": "spot7",
+      "parameters": {}
+    },
+    "spot8": {
+      "module": "news",
+      "script": "../widgets/news/news.js",
+      "location": "spot8",
+      "parameters": {
+        "apiKey" : "2608f524434e4e2fb24546a02bcf624d"
+      }
     }
   },
-  "spot4": {
-    "module": "voice",
-    "script": "../widgets/voice/voice.js",
-    "location": "spot4",
-    "parameters": {
-      "apiKey": "AIzaSyBDZv-as1aNncWvLnxzuzcB9_VI8fuFzqg"
-    }
-  },
-  "spot5": {
-    "module": "ootd",
-    "script": "../widgets/ootd/ootd.js",
-    "location": "spot5",
-    "parameters": {}
-  },
-  "spot6": {
-    "module": "stocks",
-    "script": "../widgets/stocks/stocks.js",
-    "location": "spot6",
-    "parameters": {
-      "stocksList": ["GOOG","AAPL","YHOO","TSLA"]
-    }
-  },
-  "spot7": {
-    "module": "",
-    "script": "",
-    "location": "spot7",
-    "parameters": {}
-  },
-  "spot8": {
-    "module": "news",
-    "script": "../widgets/news/news.js",
-    "location": "spot8",
-    "parameters": {
-      "apiKey" : "2608f524434e4e2fb24546a02bcf624d"
-    }
-  }
+  "zipCode": "43606",
+  "degreeType": "F",
+  "stocksList": ["GOOG","AAPL","YHOO","TSLA"],
+  "newsApiKey": "2608f524434e4e2fb24546a02bcf624d",
+  "voiceApiKey": "AIzaSyBDZv-as1aNncWvLnxzuzcB9_VI8fuFzqg"
 }

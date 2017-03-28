@@ -33,12 +33,7 @@ app.get('/user-config', function(req, res) {
 
 app.get('/youtube', function(req,res){
   var videoQuery = req.query.subject;
-  var apiKey = null;
-  for(var item in config){
-		if(config[item].module.trim() === "voiceFeedback"){
-			apiKey = config[item].parameters.apiKey;
-		}
-	}
+  var apiKey = config['voiceApiKey'];
   var opt = {
     maxResults: 5,
     type: 'video',
@@ -47,11 +42,11 @@ app.get('/youtube', function(req,res){
   if(apiKey !== null){
   	youtube(videoQuery, opt, function(err, result){
       if(err) return console.log(err)
-      
+
       res.send(result);
   	});
   }
-  
+
 });
 
 app.get('/commands', function(req, res){
@@ -59,14 +54,8 @@ app.get('/commands', function(req, res){
 });
 
 app.get('/weather', function(req, res) {
-	var zipCode = null;
-	var type = null;
-	for(var item in config){
-		if(config[item].module.trim() === "weather"){
-			zipCode = config[item].parameters.zipCode;
-			type = config[item].parameters.degreeType;
-		}
-	}
+	var zipCode = config.zipCode;
+	var type = config.degreeType;
 
 	if((zipCode !== null) && (type !== null)){
 		weather.find({search: zipCode, degreeType: type}, function(err, result) {
@@ -77,12 +66,7 @@ app.get('/weather', function(req, res) {
 });
 
 app.get('/news', function(req, res) {
-	var apiKey = null;
-	for(var item in config){
-		if(config[item].module.trim() === "news"){
-			apiKey = config[item].parameters.apiKey;
-		}
-	}
+	var apiKey = config['newsApiKey'];
 
 	var uri = "https://newsapi.org/v1/articles?source=google-news&apiKey=";
 	if(apiKey !== null){
@@ -97,13 +81,7 @@ app.get('/news', function(req, res) {
 });
 
 app.get('/stocks', function(req, res) {
-	var stockList = null;
-
-	for(var item in config){
-		if(config[item].module.trim() === "stocks"){
-			stockList = config[item].parameters.stocksList;
-		}
-	}
+	var stockList = config['stocksList'];
 
 	if(stockList !== null){
 		yahooAPI.getQuote(stockList).then(function(result){

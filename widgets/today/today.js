@@ -9,7 +9,7 @@ var dayOfWeek = ["Mon", "Tues", "Wed",
 ];
 
 function wrapperSetup(){
-	$('#dateAndTime').html('<div id="clock"></div><div id="date"></div>');
+	$('#today').html('<div id="clock"></div><div id="date"></div>');
 }
 
 function renderClock(){
@@ -18,32 +18,32 @@ function renderClock(){
 	var hour = currentTime.getHours();
 	var min = currentTime.getMinutes();
 	var seconds = currentTime.getSeconds();
-	
+
 	if(hour == 0){
 		hour = 12;
 	}else if(hour > 12){
 		hour = hour - 12
 		period = "PM"
 	}
-	
+
 	if(hour < 10){
 		hour = "0" + hour;
 	}
-	
+
 	if(min < 10){
 		min = "0" + min;
 	}
-	
+
 	if(seconds < 10){
 		seconds = "0" + seconds;
 	}
-	
+
 	$('#clock').html(hour + ":" + min + "<span id='seconds'>" + seconds + "</span><span id='ampm'>" + period + "</span>");
 	setTimeout('renderClock()', 1000);
 }
 
 function renderDate(){
-	updateDate();	
+	updateDate();
 	setInterval('updateDate()', 600000);
 }
 
@@ -55,7 +55,7 @@ function updateDate(){
 	var dayIndex = date.getDay();
 
 	$('#date').html(dayOfWeek[dayIndex] + ", " + monthNames[monthIndex] + " " + dayNumber + ", " + year);
-	console.log("Date updated");	
+	console.log("Date updated");
 }
 
 wrapperSetup();

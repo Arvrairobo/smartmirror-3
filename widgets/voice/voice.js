@@ -35,7 +35,7 @@ if (annyang) {
 
 /*-----Welcoming Message-----*/
 function loadWelcomeMessage(messages) {
-    var htmlId = '#voiceFeedback';
+    var htmlId = '#voice';
     var rand = Math.floor(Math.random() * messages.length);
     var choice = messages[rand];
     $(htmlId).html(choice);
@@ -52,7 +52,7 @@ function helloResponse() {
 
     confirmbeep.play();
 
-    var htmlId = '#voiceFeedback';
+    var htmlId = '#voice';
     var rand = Math.floor(Math.random() * messages.length);
     var choice = messages[rand];
     clearFeedbackArea();
@@ -64,7 +64,7 @@ function findVideo(videoTitle) {
     confirmbeep.play();
     var queryString = encodeURIComponent(videoTitle.trim());
     clearFeedbackArea();
-    $('#voiceFeedback').html('<div id="youtubeIframe">Loading Video...</div>');
+    $('#voice').html('<div id="youtubeIframe">Loading Video...</div>');
     $.getJSON({
         type: 'GET',
         dataType: "json",
@@ -139,7 +139,7 @@ function muteVideo(){
 /*-----Clean up commands----*/
 function clearFeedbackArea(){
   player = null;
-	$('#voiceFeedback').empty();
+	$('#voice').empty();
 }
 
 function reloadPage(){
@@ -149,7 +149,7 @@ function reloadPage(){
 function showCommands() {
   confirmbeep.play();
   clearFeedbackArea();
-  $('#voiceFeedback').html('<div id="commandsWrapper"><ul id="commands"></ul></div>');
+  $('#voice').html('<div id="commandsWrapper"><ul id="commands"></ul></div>');
   $.getJSON({
       type: 'GET',
       dataType: "json",
@@ -176,7 +176,7 @@ function showCommands() {
 
 /*-----Helper functions to make things look cool-----*/
 function animateContent(direction) {
-    var animationOffset = $('#voiceFeedback').height() - $('#commandsWrapper').height();
+    var animationOffset = $('#voice').height() - $('#commandsWrapper').height();
     if (direction == 'up') animationOffset = 0;
     $('#commandsWrapper').animate({ "marginTop": (animationOffset) + "px" }, 5000);
 }

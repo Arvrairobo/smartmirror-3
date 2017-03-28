@@ -20,14 +20,20 @@ $(document).ready(function() {
 
   $.get('/config', function(data) {
     for (var x=1; x < 9; x++) {
-      var widget = data['spot'+x]['module'];
+      var widget = data['spots']['spot'+x]['module'];
       $('#spot'+x+' option[value="'+widget+'"]').attr('selected','selected');
-      console.log(widget);
     }
+    $('#zipcode').val(data['zipCode']);
+    $('#newsapi').val(data['newsApiKey']);
+    $('#voiceapi').val(data['voiceApiKey']);
     initselect();
   });
 
+  $('#saveconfig').click(function(e) {
+    e.preventDefault();
 
+    console.log('config saved');
+  });
 
 
 });

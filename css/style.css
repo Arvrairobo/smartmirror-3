@@ -110,23 +110,23 @@ div#spot8 {
 	margin: 8px 10px;
 }
 
-#dateAndTime *{
+#today *{
 	line-height: 1;
 	margin: 15px;
 }
-#dateAndTime #clock {
+#today #clock {
 	font-weight: 300;
 	font-size: 90px;
 }
-#dateAndTime #clock #seconds {
+#today #clock #seconds {
 	font-size: 40px;
 	margin-left: 5px;
 	vertical-align: super;
 }
-#dateAndTime #clock #ampm {
+#today #clock #ampm {
 	font-size:;
 }
-#dateAndTime #date {
+#today #date {
 	font-size: 50px;
 	font-weight: 200;
 }

@@ -10,7 +10,7 @@
 
 <body>
 
-<h2 class="center-align">User Configuration</h2>
+<h2 class="center-align">SAM User Configuration</h2>
 
 <div class="container" id="config-page">
 	<div class="row">
@@ -74,6 +74,30 @@
 				<option value="na">N/A</option>
 			</select>
 			<label for="spot8">Spot #8 Widget: </label>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col s12 m6">
+			<label for="zipcode">ZIP Code: </label>
+			<input type="text" placeholder="ZIP Code" name="zipcode" id="zipcode">
+		</div>
+		<div class="col s12 m6">
+			<label for="zipcode">News API Key: </label>
+			<input type="text" placeholder="API Key" value="" name="newsapi" id="newsapi">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col s12 m6">
+			<label for="zipcode">Voice API Key: </label>
+			<input type="text" placeholder="Voice API Key" value="" name="voiceapi" id="voiceapi">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col s12">
+			<button id="saveconfig" class="btn">Save Config</button>
 		</div>
 	</div>
 </div>
