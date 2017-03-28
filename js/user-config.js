@@ -26,6 +26,7 @@ $(document).ready(function() {
     $('#zipcode').val(data['zipCode']);
     $('#newsapi').val(data['newsApiKey']);
     $('#voiceapi').val(data['voiceApiKey']);
+    $('#stockslist').val(data['stocksList'].join());
     initselect();
   });
 
