@@ -1,6 +1,6 @@
 {
   "spot1": {
-    "module": "dateAndTime",
+    "module": "today",
     "script": "../widgets/today/today.js",
     "location": "spot1",
     "parameters": {}
@@ -21,7 +21,7 @@
     }
   },
   "spot4": {
-    "module": "voiceFeedback",
+    "module": "voice",
     "script": "../widgets/voice/voice.js",
     "location": "spot4",
     "parameters": {
