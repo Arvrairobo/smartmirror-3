@@ -10,7 +10,6 @@ body {
 	position: relative;
 }
 
-
 div#spot1 {
 	position: absolute;
 	top: 0;
@@ -195,7 +194,7 @@ div#spot8 {
 	font-size: 20px;
 	font-weight: 200;
 }
-#voiceFeedback{
+#voice{
 	margin: 15px;
 	font-size: 20px;
 	font-weight: 200;
@@ -204,4 +203,8 @@ div#spot8 {
 }
 #commands{
 	margin-top: 0px;
+}
+.diagram{
+	height: 200px;
+	width: 200px;
 }

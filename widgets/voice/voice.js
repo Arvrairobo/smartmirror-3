@@ -39,7 +39,7 @@ function loadWelcomeMessage(messages) {
     var rand = Math.floor(Math.random() * messages.length);
     var choice = messages[rand];
     $(htmlId).html(choice);
-    $(htmlId).addClass('center-align');
+    //$(htmlId).addClass('center-align');
 }
 
 /*-----Hello Command-----*/
@@ -166,7 +166,7 @@ function showCommands() {
 
       }
   });
-  if ($('#commandsWrapper').height() > $('#voiceFeedback').height()) {
+  if ($('#commandsWrapper').height() > $('#voice').height()) {
     setInterval(function() {
       start();
     }, 5000);
