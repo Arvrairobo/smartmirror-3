@@ -9,7 +9,7 @@ function addWidgetWrapper(module, finished){
 //add widget amongst their specified location
 function addWidget(scriptPath){
 	$.getScript(scriptPath, function(data){
-			console.log('widgets are loaded');
+			console.log('widget is loaded: ' + scriptPath);
 	});
 }
 
@@ -21,7 +21,7 @@ $(document).ready(function() {
 		ret = ret.spots;
 		//loop through return object, grab only the one's with scripts
 		for(var item in ret){
-			if(!(ret[item].script.trim() === "")){
+			if(!(ret[item].module.trim() === "")){
 			 	modulesToLoad.push(ret[item]);
 			}
 		}

@@ -4,7 +4,8 @@ var options = [
   {"script":"stocks", "name":"Stocks"},
   {"script":"today", "name":"Clock and Date"},
   {"script":"welcome", "name":"Welcome Message"},
-  {"script":"ootd", "name":"Outfit of the Day"}
+  {"script":"ootd", "name":"Outfit of the Day"},
+  {"script":"voice", "name": "Voice Recognition (feedback area)"}
 ];
 
 var config;
@@ -32,8 +33,18 @@ $(document).ready(function() {
 
   $('#saveconfig').click(function(e) {
     e.preventDefault();
-
-    console.log('config saved');
+    $.post('/config', {
+        zipCode: $('#zipcode').val(),
+        newsApiKey: $('#newsapi').val(),
+        voiceApiKey: $('#voiceapi').val(),
+        stocksList: $('#stockslist').val().split(","),
+        spot1: $('#spot1').val(), spot2: $('#spot2').val(), spot3: $('#spot3').val(), spot4: $('#spot4').val(),
+        spot5: $('#spot5').val(), spot6: $('#spot6').val(), spot7: $('#spot7').val(), spot8: $('#spot8').val()
+      },
+      function(data) {
+        alert(data);
+      }
+    );
   });
 
 

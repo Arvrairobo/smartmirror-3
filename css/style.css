@@ -73,10 +73,7 @@ div#spot8 {
 #weather #temp {
 	margin: 0;
 	font-size: 100px;
-}
-#weather #temp span {
-	vertical-align: super;
-    font-size: smaller;
+  text-align: right;
 }
 #weather #location {
 	margin: 0;

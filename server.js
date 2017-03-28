@@ -3,6 +3,7 @@ var express = require("express");
 var app = express();
 var path = require("path");
 var fs = require("fs");
+var bodyParser = require('body-parser')
 
 //node package for news widget
 var superagent = require('superagent-cache')();
@@ -14,9 +15,15 @@ var yahooAPI = new YahooFinanceAPI();
 //node package for weather widget
 var weather = require('weather-js');
 
+//node package for voice youtube searching
 var youtube = require('youtube-search');
+
 //user variables
 var config = require('./config.json');
+
+//allow JSON POST and GET variables
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/css", express.static(path.resolve(__dirname + "/css")));
 app.use("/font", express.static(path.resolve(__dirname + "/font")));
@@ -93,6 +100,31 @@ app.get('/stocks', function(req, res) {
 app.get('/config', function(req, res) {
 	config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 	res.send(JSON.parse(fs.readFileSync('config.json', 'utf8')));
+});
+
+app.post('/config', function(req, res) {
+	var newconf = {};
+	newconf.spots = {};
+	newconf.zipCode = req.body.zipCode;
+	newconf.newsApiKey = req.body.newsApiKey;
+	newconf.voiceApiKey = req.body.voiceApiKey;
+	newconf.stocksList = req.body.stocksList;
+	newconf.spots.spot1 = {module: req.body.spot1, location: "spot1", script: "../widgets/"+req.body.spot1+"/"+req.body.spot1+".js"};
+	newconf.spots.spot2 = {module: req.body.spot2, location: "spot2", script: "../widgets/"+req.body.spot2+"/"+req.body.spot2+".js"};
+	newconf.spots.spot3 = {module: req.body.spot3, location: "spot3", script: "../widgets/"+req.body.spot3+"/"+req.body.spot3+".js"};
+	newconf.spots.spot4 = {module: req.body.spot4, location: "spot4", script: "../widgets/"+req.body.spot4+"/"+req.body.spot4+".js"};
+	newconf.spots.spot5 = {module: req.body.spot5, location: "spot5", script: "../widgets/"+req.body.spot5+"/"+req.body.spot5+".js"};
+	newconf.spots.spot6 = {module: req.body.spot6, location: "spot6", script: "../widgets/"+req.body.spot6+"/"+req.body.spot6+".js"};
+	newconf.spots.spot7 = {module: req.body.spot7, location: "spot7", script: "../widgets/"+req.body.spot7+"/"+req.body.spot7+".js"};
+	newconf.spots.spot8 = {module: req.body.spot8, location: "spot8", script: "../widgets/"+req.body.spot8+"/"+req.body.spot8+".js"};
+	console.log(newconf);
+	fs.writeFile("config.json", JSON.stringify(newconf), function(err) {
+    if(err) {
+        res.send('Error! ' + err);
+    }
+    res.send('Configuration successfully saved!');
+	});
+
 });
 
 app.listen(8080, function() {

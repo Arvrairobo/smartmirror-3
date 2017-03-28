@@ -1,0 +1,49 @@
+{
+  "spots": {
+    "spot1": {
+      "module": "today",
+      "script": "../widgets/today/today.js",
+      "location": "spot1"
+    },
+    "spot2": {
+      "module": "",
+      "script": "",
+      "location": "spot2"
+    },
+    "spot3": {
+      "module": "weather",
+      "script": "../widgets/weather/weather.js",
+      "location": "spot3"
+    },
+    "spot4": {
+      "module": "voice",
+      "script": "../widgets/voice/voice.js",
+      "location": "spot4"
+    },
+    "spot5": {
+      "module": "ootd",
+      "script": "../widgets/ootd/ootd.js",
+      "location": "spot5"
+    },
+    "spot6": {
+      "module": "stocks",
+      "script": "../widgets/stocks/stocks.js",
+      "location": "spot6"
+    },
+    "spot7": {
+      "module": "",
+      "script": "",
+      "location": "spot7"
+    },
+    "spot8": {
+      "module": "news",
+      "script": "../widgets/news/news.js",
+      "location": "spot8"
+    }
+  },
+  "zipCode": "43606",
+  "degreeType": "F",
+  "stocksList": ["GOOG","AAPL","YHOO","TSLA"],
+  "newsApiKey": "2608f524434e4e2fb24546a02bcf624d",
+  "voiceApiKey": "AIzaSyBDZv-as1aNncWvLnxzuzcB9_VI8fuFzqg"
+}
