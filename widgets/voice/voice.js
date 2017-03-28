@@ -23,7 +23,8 @@ if (annyang) {
     'clear (video)': clearFeedbackArea,
     'mute video': muteVideo,
     'show commands': showCommands,
-    'refresh': reloadPage
+    'refresh': reloadPage,
+    '(enter) (exit) mirror mode': mirrorMode
   };
 
   // Add our commands to annyang
@@ -172,6 +173,11 @@ function showCommands() {
     }, 5000);
 	}
 
+}
+
+/*-----Mirror Mode Commands-----*/
+function mirrorMode(){
+  $('body').toggle("slow");
 }
 
 /*-----Helper functions to make things look cool-----*/

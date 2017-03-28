@@ -34,5 +34,9 @@
   "command9": {
     "command": "refresh",
     "description": "reload page"
+  },
+  "command10":{
+    "command": "mirror mode",
+    "description": "toggle between blank/smart display"
   }
 }
