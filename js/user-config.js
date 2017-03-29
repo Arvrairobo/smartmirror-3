@@ -26,7 +26,9 @@ $(document).ready(function() {
     }
     $('#zipcode').val(data['zipCode']);
     $('#newsapi').val(data['newsApiKey']);
-    $('#voiceapi').val(data['voiceApiKey']);
+    $('#youtubeapi').val(data['youtubeApiKey']);
+    $('#flickrapi').val(data['flickrApiKey']);
+    $('#flickrsecret').val(data['flickrSecret']);
     $('#stockslist').val(data['stocksList'].join());
     initselect();
   });
@@ -36,7 +38,9 @@ $(document).ready(function() {
     $.post('/config', {
         zipCode: $('#zipcode').val(),
         newsApiKey: $('#newsapi').val(),
-        voiceApiKey: $('#voiceapi').val(),
+        youtubeApiKey: $('#youtubeapi').val(),
+        flickrApiKey: $('#flickrapi').val(),
+        flickrSecret: $('#flickrsecret').val(),
         stocksList: $('#stockslist').val().split(","),
         spot1: $('#spot1').val(), spot2: $('#spot2').val(), spot3: $('#spot3').val(), spot4: $('#spot4').val(),
         spot5: $('#spot5').val(), spot6: $('#spot6').val(), spot7: $('#spot7').val(), spot8: $('#spot8').val()

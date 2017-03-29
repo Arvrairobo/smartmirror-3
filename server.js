@@ -122,7 +122,9 @@ app.post('/config', function(req, res) {
 	newconf.spots = {};
 	newconf.zipCode = req.body.zipCode;
 	newconf.newsApiKey = req.body.newsApiKey;
-	newconf.voiceApiKey = req.body.voiceApiKey;
+	newconf.youtubeApiKey = req.body.youtubeApiKey;
+	newconf.flickrApiKey = req.body.flickrApiKey;
+	newconf.flickrSecret = req.body.flickrSecret;
 	newconf.stocksList = req.body.stocksList;
 	newconf.spots.spot1 = {module: req.body.spot1, location: "spot1", script: "../widgets/"+req.body.spot1+"/"+req.body.spot1+".js"};
 	newconf.spots.spot2 = {module: req.body.spot2, location: "spot2", script: "../widgets/"+req.body.spot2+"/"+req.body.spot2+".js"};
