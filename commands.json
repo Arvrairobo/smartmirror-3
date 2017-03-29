@@ -36,7 +36,15 @@
     "description": "reload page"
   },
   "command10":{
-    "command": "mirror mode",
+    "command": "hide/show display",
     "description": "toggle between blank/smart display"
+  },
+  "command11":{
+    "command": "show picture of *",
+    "description": "Search for pictures of choice"
+  },
+  "command12":{
+    "command": "enlarge picture *",
+    "description": "enlarge the specified picture number"
   }
 }

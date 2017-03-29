@@ -24,7 +24,9 @@ if (annyang) {
     'mute video': muteVideo,
     'show commands': showCommands,
     'refresh': reloadPage,
-    '(enter) (exit) mirror mode': mirrorMode
+    '(show) (hide) display': mirrorMode,
+    'show (me) (a) picture(s) (of) *picture': showImages,
+    'enlarge picture *choice': enlargePicture
   };
 
   // Add our commands to annyang
@@ -58,6 +60,54 @@ function helloResponse() {
     var choice = messages[rand];
     clearFeedbackArea();
     $(htmlId).html(choice);
+}
+
+/*-----Flickr Images Command-----*/
+function showImages(picture){
+  confirmbeep.play();
+  clearFeedbackArea();
+  var queryString = encodeURIComponent(picture.trim());
+  $('#voice').html('<div id="pictures">Loading Images...</div>');
+  $.getJSON({
+        type: 'GET',
+        dataType: "json",
+        async: false,
+        url: 'http://localhost:8080/pictures?subject=' + queryString,
+        success: function(data) {
+            addPictureSlide(data);
+        }
+  });
+}
+
+function addPictureSlide(pictureData){
+  var referenceID = ["one", "two", "three", "four", "five"];
+  $('#pictures').empty();
+  for(var i = 0; i < pictureData.length; i++){
+    var currentPicture = pictureData[i];
+    var farm = currentPicture.farm;
+    var serverID = currentPicture.server;
+    var id = currentPicture.id;
+    var secret = currentPicture.secret;
+    var imgSrc = "https://c2.staticflickr.com/{farm}/{serverID}/{id}_{secret}.jpg"
+    .replace('{farm}', farm)
+    .replace('{serverID}', serverID)
+    .replace('{id}', id)
+    .replace('{secret}', secret);
+    $('#pictures').append('<img id="' + referenceID[i] +'" class="img-small" src="' + imgSrc + '">');  
+  }
+}
+
+function enlargePicture(choice){
+  var filterChoice = commandCorrection(choice);
+  console.log(choice);
+  $('#pictures').children('img').each(function(){
+      if($(this).hasClass("img-large")){
+          $(this).removeClass("img-large");
+          $(this).addClass("img-small");
+      }
+  });
+
+  $('#' + filterChoice).removeClass('img-small').addClass('img-large');
 }
 
 /*-----Youtube Video Command----*/
@@ -181,6 +231,28 @@ function mirrorMode(){
 }
 
 /*-----Helper functions to make things look cool-----*/
+function commandCorrection(word){
+  var oneWords = ["one", "1"];
+  var twoWords = ["too", "to", "two", "2"];
+  var threeWords = ["tree", "three", "3"];
+  var fourWords = ["for", "four", "4"];
+  var fiveWords = ["five", "5"];
+  var realWord = "";
+  if($.inArray(word, oneWords) > -1){
+    realWord = "one";
+  }else if($.inArray(word, twoWords) > -1){
+    realWord = "two";
+  }else if($.inArray(word, threeWords) > -1){
+    realWord = "three";
+  }else if($.inArray(word, fourWords) > -1){
+    realWord = "four";
+  }else if($.inArray(word, fiveWords) > -1){
+    realWord = "five";
+  }
+
+  return realWord;
+}
+
 function animateContent(direction) {
     var animationOffset = $('#voice').height() - $('#commandsWrapper').height();
     if (direction == 'up') animationOffset = 0;

@@ -18,6 +18,9 @@ var weather = require('weather-js');
 //node package for voice youtube searching
 var youtube = require('youtube-search');
 
+//node package for voice picture searching from flickr
+var Flickr = require('flickr-sdk');
+
 //user variables
 var config = require('./config.json');
 
@@ -38,9 +41,21 @@ app.get('/user-config', function(req, res) {
 	res.send(fs.readFileSync(path.resolve(__dirname + "/user-config.html"), {encoding: "utf8"}));
 });
 
+app.get('/pictures', function(req, res){
+	var pictureQuery = req.query.subject;
+	var flickr = new Flickr({
+		"apiKey": config['flickrApiKey'],
+		"apiSecret": config['flickSecret']
+	});
+
+	flickr.request().media().search(pictureQuery).get({page: 1, per_page: 5, media: 'photos'}).then(function (response) {
+		res.send(response.body.photos.photo);
+	});
+});
+
 app.get('/youtube', function(req,res){
   var videoQuery = req.query.subject;
-  var apiKey = config['voiceApiKey'];
+  var apiKey = config['youtubeApiKey'];
   var opt = {
     maxResults: 5,
     type: 'video',
