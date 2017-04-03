@@ -26,7 +26,8 @@ if (annyang) {
     'refresh': reloadPage,
     '(show) (hide) display': mirrorMode,
     'show (me) (a) picture(s) (of) *picture': showImages,
-    'enlarge picture *choice': enlargePicture
+    'enlarge picture *choice': enlargePicture,
+    '(show) settings': configURL
   };
 
   // Add our commands to annyang
@@ -93,7 +94,7 @@ function addPictureSlide(pictureData){
     .replace('{serverID}', serverID)
     .replace('{id}', id)
     .replace('{secret}', secret);
-    $('#pictures').append('<img id="' + referenceID[i] +'" class="img-small" src="' + imgSrc + '">');  
+    $('#pictures').append('<img id="' + referenceID[i] +'" class="img-small" src="' + imgSrc + '">');
   }
 }
 
@@ -229,6 +230,16 @@ function showCommands() {
 function mirrorMode(){
   $('body').toggle("slow");
 }
+
+/*----- Show Config URL --------*/
+function configURL() {
+  confirmbeep.play();
+  clearFeedbackArea();
+  $.get('/ip', function(data) {
+    $('#voice').html("Navigate to <strong>http://" + data + "/settings</strong> on any other device to configure me!");
+  });
+}
+
 
 /*-----Helper functions to make things look cool-----*/
 function commandCorrection(word){

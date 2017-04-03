@@ -35,20 +35,22 @@ $(document).ready(function() {
 
   $('#saveconfig').click(function(e) {
     e.preventDefault();
-    $.post('/config', {
-        zipCode: $('#zipcode').val(),
-        newsApiKey: $('#newsapi').val(),
-        youtubeApiKey: $('#youtubeapi').val(),
-        flickrApiKey: $('#flickrapi').val(),
-        flickrSecret: $('#flickrsecret').val(),
-        stocksList: $('#stockslist').val().split(","),
-        spot1: $('#spot1').val(), spot2: $('#spot2').val(), spot3: $('#spot3').val(), spot4: $('#spot4').val(),
-        spot5: $('#spot5').val(), spot6: $('#spot6').val(), spot7: $('#spot7').val(), spot8: $('#spot8').val()
-      },
-      function(data) {
-        alert(data);
-      }
-    );
+    if (confirm('Are you sure you want to save? *Config file will be overwritten*')) {
+      $.post('/config', {
+          zipCode: $('#zipcode').val(),
+          newsApiKey: $('#newsapi').val(),
+          youtubeApiKey: $('#youtubeapi').val(),
+          flickrApiKey: $('#flickrapi').val(),
+          flickrSecret: $('#flickrsecret').val(),
+          stocksList: $('#stockslist').val().split(","),
+          spot1: $('#spot1').val(), spot2: $('#spot2').val(), spot3: $('#spot3').val(), spot4: $('#spot4').val(),
+          spot5: $('#spot5').val(), spot6: $('#spot6').val(), spot7: $('#spot7').val(), spot8: $('#spot8').val()
+        },
+        function(data) {
+          alert(data);
+        }
+      );
+    }
   });
 
 

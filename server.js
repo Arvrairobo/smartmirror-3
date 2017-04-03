@@ -1,9 +1,12 @@
-//require modules
+//required modules
 var express = require("express");
 var app = express();
 var path = require("path");
 var fs = require("fs");
 var bodyParser = require('body-parser')
+var os = require('os');
+var ifaces = os.networkInterfaces();
+var ip = require('ip');
 
 //node package for news widget
 var superagent = require('superagent-cache')();
@@ -37,8 +40,8 @@ app.get('/', function(req, res) {
 	res.send(fs.readFileSync(path.resolve(__dirname + "/index.html"), {encoding: "utf8"}));
 });
 
-app.get('/user-config', function(req, res) {
-	res.send(fs.readFileSync(path.resolve(__dirname + "/user-config.html"), {encoding: "utf8"}));
+app.get('/settings', function(req, res) {
+	res.send(fs.readFileSync(path.resolve(__dirname + "/settings.html"), {encoding: "utf8"}));
 });
 
 app.get('/pictures', function(req, res){
@@ -141,10 +144,14 @@ app.post('/config', function(req, res) {
     }
     res.send('Configuration successfully saved!');
 	});
-
 });
 
-app.listen(8080, function() {
-	console.log('Server running on port 8080!');
-	console.log('Visit http://localhost:8080/ to view.');
+
+app.get('/ip', function(req, res) {
+	res.send(ip.address());
+});
+
+app.listen(80, function() {
+	console.log('Server running on port 80!');
+	console.log('Visit http://localhost/ to view.');
 });

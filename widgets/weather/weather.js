@@ -3,7 +3,7 @@ $.getJSON({
 	type: 'GET',
 	dataType: "json",
 	async: false,
-	url: 'http://localhost:8080/weather',
+	url: '/weather',
 	success: function(data){
 		wrapperSetup(data);
 	}
@@ -73,7 +73,7 @@ function updateWeather() {
         type: 'GET',
         dataType: "json",
         async: false,
-        url: 'http://localhost:8080/weather',
+        url: '/weather',
         success: function(data) {
             addWidget(data[0]);
             console.log("Weather updated");

@@ -3,7 +3,7 @@ $.getJSON({
 	type: 'GET',
 	dataType: "json",
 	async: false,
-	url: 'http://localhost:8080/stocks',
+	url: '/stocks',
 	success: function(data){
 		wrapperSetup(data);
 	}
@@ -20,7 +20,7 @@ function addWidget(stocks){
 		var stockSymbol = stocks[i].Symbol;
 		var stockAsk = stocks[i].Ask;
 		var stockChange = stocks[i].Change;
-		var stockChangePercent = stocks[i].ChangeinPercent;		
+		var stockChangePercent = stocks[i].ChangeinPercent;
 
 		$('#stockList').append(`<li id="`+stockSymbol+`">
 				<div id="stockName">`+stockSymbol+`</div>
@@ -36,7 +36,7 @@ function updateStocks(){
 	$.getJSON({
 		type: 'GET',
 		dataType: "json",
-		url: 'http://localhost:8080/stocks',
+		url: '/stocks',
 		async: false,
 		success: function(data){
 			for (var i = 0; i < data.length; i++) {
