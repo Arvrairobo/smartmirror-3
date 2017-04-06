@@ -34,7 +34,7 @@ $.getJSON({
 	type: 'GET',
 	dataType: "json",
 	async: false,
-	url: 'http://localhost:8080/weather',
+	url: '/weather',
 	success: function(data){
 		wrapperSetup(data);
 	}
@@ -78,7 +78,7 @@ function updateOOTD() {
         type: 'GET',
         dataType: "json",
         async: false,
-        url: 'http://localhost:8080/weather',
+        url: '/weather',
         success: function(data) {
           addWidget(data);
           console.log("OOTD updated");

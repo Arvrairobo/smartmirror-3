@@ -73,7 +73,7 @@ function showImages(picture){
         type: 'GET',
         dataType: "json",
         async: false,
-        url: 'http://localhost:8080/pictures?subject=' + queryString,
+        url: '/pictures?subject=' + queryString,
         success: function(data) {
             addPictureSlide(data);
         }
@@ -121,7 +121,7 @@ function findVideo(videoTitle) {
         type: 'GET',
         dataType: "json",
         async: false,
-        url: 'http://localhost:8080/youtube?subject=' + queryString,
+        url: '/youtube?subject=' + queryString,
         success: function(data) {
             addVideo(data);
         }
@@ -206,7 +206,7 @@ function showCommands() {
       type: 'GET',
       dataType: "json",
       async: false,
-      url: 'http://localhost:8080/commands',
+      url: '/commands',
       success: function(data) {
       	var $commandsList = $('#commands');
           for (var item in data) {
