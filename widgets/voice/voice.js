@@ -137,8 +137,8 @@ function addVideo(videoData) {
     if(typeof window.YT !== 'undefined'){
       $('#youtubeIframe').empty();
     	player = new window.YT.Player('youtubeIframe', {
-        height: '230',
-        width: '420',
+        height: '460',
+        width: '840',
         videoId: vidID,
         events: {
             'onReady': playVideo
@@ -152,8 +152,8 @@ function addVideo(videoData) {
 //must be in the global scope
 function onYouTubeIframeAPIReady() {
 	player = new YT.Player('youtubeIframe', {
-        height: '230',
-        width: '420',
+        height: '460',
+        width: '840',
         videoId: vidID,
         events: {
             'onReady': playVideo
