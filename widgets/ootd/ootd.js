@@ -28,7 +28,7 @@ var rainWeather = [
   "Rain coat and rain boots would be nice!"
 ];
 
-var rainCode = [5, 6, 7, 10, 11, 12, 18, 39, 40, 41, 45, 46];
+var rainCode = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 17, 18, 35, 37, 38, 39, 40, 45, 47];
 
 $.getJSON({
 	type: 'GET',
@@ -67,10 +67,9 @@ function addWidget(weatherData) {
         $('#ootdPrompt').html(extremeWeather[rand]);
     }
 
-    if ($.inArray(skyCode, rainCode) > -1) {
+    if ($.inArray(parseInt(skyCode), rainCode) > -1) {
         $('#ootdPrompt').append("<br>" + rainWeather[rand2]);
     }
-
 }
 
 function updateOOTD() {
@@ -85,35 +84,3 @@ function updateOOTD() {
         }
     });
 }
-
-/*0, 1 ,2, 3 ,4, 17, 35 - Thunderstorm
-5 - Rain/Snow mix
-6 - Sleet/Snow mix
-7 - Rain/Snow/Sleet mix
-8,9 - Icy
-10 - Rain/Sleet mix
-11 - Light Rain
-12 - Rain
-13 - Light Snow
-14,16,42,43 - Snow
-15 - Blizzard
-18,40 - Showers
-19 - Dust
-20 - Fog
-21 - Haze
-22 - Smoke
-23,24 - Windy
-25 - Frigid
-26 - Cloudy
-27,29,33 - Partly Cloudy (night)
-28,30,34 - Partly Cloudy
-31 - Clear (night)
-32 - Clear
-36 - Hot
-37,38 - Scattered Thunderstorms
-39 - Scattered Showers
-41 - Scattered Snow Showers
-44 - N/A
-45 - Scattered Rain Showers (night)
-46 - Scattered Snow Showers (night)
-47 - Scattered Thunderstorms (night)*/

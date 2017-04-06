@@ -151,7 +151,7 @@ app.get('/ip', function(req, res) {
 	res.send(ip.address());
 });
 
-app.listen(80, function() {
+app.listen(5000, function() {
 	console.log('Server running on port 80!');
 	console.log('Visit http://localhost/ to view.');
 });

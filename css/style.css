@@ -198,6 +198,8 @@ div#spot8 {
 	margin: 15px;
 	font-size: 20px;
 	font-weight: 200;
+	max-height: 450px;
+	overflow: hidden;
 }
 #commands{
 	margin-top: 0px;
@@ -206,13 +208,18 @@ div#spot8 {
 	height: 200px;
 	width: 200px;
 }
-.img-small{
+.img-regular{
 	height: 100px;
 	width: 100px;
+	margin:2.5px;
+}
+.img-small{
+	height: 50px;
+	width: 50px;	
 	margin: 2.5px;
 }
 .img-large{
-	height: 150px;
-	width: 150px;
+	height: 300px;
+	width: 300px;
 	margin: 2.5px;
 }

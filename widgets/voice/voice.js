@@ -20,11 +20,12 @@ if (annyang) {
     'pause video': pauseVideo,
     'stop video': stopVideo,
     'play video': playVideo,
-    'clear (video)': clearFeedbackArea,
+    'clear (video)': soloClear,
     'mute video': muteVideo,
     'show commands': showCommands,
     'refresh': reloadPage,
-    '(show) (hide) display': mirrorMode,
+    '(show) (hide) *word display': mirrorMode,
+    '(show) (hide) *word mirror': mirrorMode,
     'show (me) (a) picture(s) (of) *picture': showImages,
     'enlarge picture *choice': enlargePicture,
     '(show) settings': configURL
@@ -43,7 +44,6 @@ function loadWelcomeMessage(messages) {
     var rand = Math.floor(Math.random() * messages.length);
     var choice = messages[rand];
     $(htmlId).html(choice);
-    //$(htmlId).addClass('center-align');
 }
 
 /*-----Hello Command-----*/
@@ -94,16 +94,18 @@ function addPictureSlide(pictureData){
     .replace('{serverID}', serverID)
     .replace('{id}', id)
     .replace('{secret}', secret);
-    $('#pictures').append('<img id="' + referenceID[i] +'" class="img-small" src="' + imgSrc + '">');
+    $('#pictures').append('<img id="' + referenceID[i] +'" class="img-regular" src="' + imgSrc + '">');
   }
 }
 
 function enlargePicture(choice){
+  confirmbeep.play();
   var filterChoice = commandCorrection(choice);
   console.log(choice);
   $('#pictures').children('img').each(function(){
-      if($(this).hasClass("img-large")){
+      if($(this).hasClass("img-large") || $(this).hasClass("img-regular")){
           $(this).removeClass("img-large");
+          $(this).removeClass("img-regular");
           $(this).addClass("img-small");
       }
   });
@@ -189,12 +191,19 @@ function muteVideo(){
 }
 
 /*-----Clean up commands----*/
+function soloClear(){
+  confirmbeep.play();
+  player = null;
+  $('#voice').empty();
+}
+
 function clearFeedbackArea(){
   player = null;
 	$('#voice').empty();
 }
 
 function reloadPage(){
+  confirmbeep.play();
   location.reload();
 }
 /*-----Help Commands-----*/
@@ -227,7 +236,8 @@ function showCommands() {
 }
 
 /*-----Mirror Mode Commands-----*/
-function mirrorMode(){
+function mirrorMode(word){
+  confirmbeep.play();
   $('body').toggle("slow");
 }
 

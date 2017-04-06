@@ -46,5 +46,9 @@
   "command12":{
     "command": "enlarge picture *",
     "description": "enlarge the specified picture number"
+  },
+  "command13":{
+    "command": "show settings",
+    "description": "show url to SAM's settings"
   }
 }
