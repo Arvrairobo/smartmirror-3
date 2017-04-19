@@ -85,6 +85,7 @@ app.get('/weather', function(req, res) {
 	if((zipCode !== null) && (type !== null)){
 		weather.find({search: zipCode, degreeType: type}, function(err, result) {
 			if(err) console.log(err);
+			console.log(result);
 			res.send(JSON.stringify(result, null, 2));
 		});
 	}

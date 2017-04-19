@@ -1,12 +1,13 @@
 //global variables for youtube player
 var player = null, vidID, done = false;
+var voicePlaybackPersonel = "UK English Female";
 var messages = [
     "Good morning!",
     "Hey there good lookin'!",
     "Long time no see.",
     "You could use a cup of coffee..",
     "Have a splendid day!",
-    "Thanks for using S.A.M. human!",
+    "Thanks for using SAM human!",
     "Great outfit choice!"
 ];
 var confirmbeep = new Audio('./widgets/voice/confirm.wav');
@@ -44,12 +45,13 @@ function loadWelcomeMessage(messages) {
     var rand = Math.floor(Math.random() * messages.length);
     var choice = messages[rand];
     $(htmlId).html(choice);
+    responsiveVoice.speak(choice, voicePlaybackPersonel);
 }
 
 /*-----Hello Command-----*/
 function helloResponse() {
     var messages = [
-        "Hello, how can I assists you?",
+        "Hello, how can I assist you?",
         "SAM at your service.",
         "How can I help you?"
     ];
@@ -61,6 +63,7 @@ function helloResponse() {
     var choice = messages[rand];
     clearFeedbackArea();
     $(htmlId).html(choice);
+    responsiveVoice.speak(choice, voicePlaybackPersonel);
 }
 
 /*-----Flickr Images Command-----*/
@@ -76,6 +79,7 @@ function showImages(picture){
         url: '/pictures?subject=' + queryString,
         success: function(data) {
             addPictureSlide(data);
+            responsiveVoice.speak("Showing images of " + picture, voicePlaybackPersonel);
         }
   });
 }
@@ -111,6 +115,7 @@ function enlargePicture(choice){
   });
 
   $('#' + filterChoice).removeClass('img-small').addClass('img-large');
+  responsiveVoice.speak("Enlarging image " + choice.toString(), voicePlaybackPersonel);
 }
 
 /*-----Youtube Video Command----*/
@@ -126,6 +131,7 @@ function findVideo(videoTitle) {
         url: '/youtube?subject=' + queryString,
         success: function(data) {
             addVideo(data);
+            responsiveVoice.speak("searching for video of " + videoTitle, voicePlaybackPersonel);
         }
     });
 }
@@ -167,16 +173,19 @@ function onYouTubeIframeAPIReady() {
 function playVideo() {
   confirmbeep.play();
 	if(player !== null) player.playVideo();
+  responsiveVoice.speak("playing video", voicePlaybackPersonel);
 }
 
 function stopVideo() {
   confirmbeep.play();
   if(player !== null) player.stopVideo();
+  responsiveVoice.speak("stoping video", voicePlaybackPersonel);
 }
 
 function pauseVideo() {
   confirmbeep.play();
   if(player !== null) player.pauseVideo();
+  responsiveVoice.speak("pausing video", voicePlaybackPersonel);
 }
 
 function muteVideo(){
@@ -184,8 +193,10 @@ function muteVideo(){
   if(player !== null){
 		if(player.isMuted()){
 			player.unMute();
+      responsiveVoice.speak("video unmuted", voicePlaybackPersonel);
 		}else{
 			player.mute();
+      responsiveVoice.speak("video muted", voicePlaybackPersonel);
 		}
 	}
 }
@@ -195,6 +206,7 @@ function soloClear(){
   confirmbeep.play();
   player = null;
   $('#voice').empty();
+  responsiveVoice.speak("clearing feedback area", voicePlaybackPersonel);
 }
 
 function clearFeedbackArea(){
@@ -205,11 +217,13 @@ function clearFeedbackArea(){
 function reloadPage(){
   confirmbeep.play();
   location.reload();
+  responsiveVoice.speak("reloading", voicePlaybackPersonel);
 }
 /*-----Help Commands-----*/
 function showCommands() {
   confirmbeep.play();
   clearFeedbackArea();
+  responsiveVoice.speak("showing commands", voicePlaybackPersonel);
   $('#voice').html('<div id="commandsWrapper"><ul id="commands"></ul></div>');
   $.getJSON({
       type: 'GET',
@@ -238,6 +252,11 @@ function showCommands() {
 /*-----Mirror Mode Commands-----*/
 function mirrorMode(word){
   confirmbeep.play();
+  if($('body').is(':visible') === true){
+    responsiveVoice.speak("hiding display", voicePlaybackPersonel);
+  }else{
+    responsiveVoice.speak("Showing display", voicePlaybackPersonel);  
+  }
   $('body').toggle("slow");
 }
 
@@ -248,6 +267,7 @@ function configURL() {
   $.get('/ip', function(data) {
     $('#voice').html("Navigate to <strong>http://" + data + "/settings</strong> on any other device to configure me!");
   });
+  responsiveVoice.speak("Showing config access point", voicePlaybackPersonel);
 }
 
 
