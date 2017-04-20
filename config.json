@@ -11,7 +11,7 @@
       "script":"../widgets//.js"
     },
     "spot3":{
-      "module":"",
+      "module":"weather",
       "location":"spot3",
       "script":"../widgets/weather/weather.js"
     },
@@ -42,10 +42,10 @@
     }
   },
   "zipCode":"43606",
-  "newsApiKey":"2608f524434e4e2fb24546a02bcf624d",
-  "youtubeApiKey":"AIzaSyBDZv-as1aNncWvLnxzuzcB9_VI8fuFzqg",
-  "flickrApiKey":"58b907941f7abcef62c283ddbcaa5b0b",
-  "flickrSecret":"36632a336a4e35ab",
+  "newsApiKey":"bac610424be143d98d8d2dd77eb17e76",
+  "youtubeApiKey":"AIzaSyAt_8IFAjmOB-J0mrheawFStm4CjxZVsQ0",
+  "flickrApiKey":"ac9ba8c865fd6bed517b915945bf8763",
+  "flickrSecret":"9dd39a04ae03ace9",
   "stocksList":[
     "GOOG",
     "AAPL",
