@@ -69,11 +69,11 @@ function addWidget(weather){
 	for(var i = 1; i <= 4; i++){
 		var dayTag = "#day" + i;
 		var forceCastIconTag = "#day" + i + "ForcastIcon";
-		$('#forecast ' + dayTag + ' #high').html(weather.forecast[i - 1].high);
+		$('#forecast ' + dayTag + ' #high').html(Math.ceil(parseInt(weather.forecast[i - 1].high)));
 		var forecastSkycon = new Skycons({"color":"white"});
 		forecastSkycon.add($(forceCastIconTag)[0], weather.forecast[i - 1].icon);
 		forecastSkycon.play();
-		$('#forecast ' + dayTag + ' #low').html(weather.forecast[i - 1].low);
+		$('#forecast ' + dayTag + ' #low').html(Math.ceil(parseInt(weather.forecast[i - 1].low)));
 		if((todayDayIndex + i) > 6){
 			$('#forecast ' + dayTag + ' #day').html(dayOfWeek[temp]);
 			temp++;

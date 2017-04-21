@@ -28,7 +28,7 @@ var rainWeather = [
   "Rain coat and rain boots would be nice!"
 ];
 
-var rainCode = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 17, 18, 35, 37, 38, 39, 40, 45, 47];
+//var rainCode = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 17, 18, 35, 37, 38, 39, 40, 45, 47];
 
 $.getJSON({
 	type: 'GET',
@@ -48,8 +48,11 @@ function wrapperSetup(weatherData) {
 
 
 function addWidget(weatherData) {
-    var currentTemp = parseInt(weatherData[0].current.temperature);
-    var skyCode = weatherData[0].current.skycode;
+    var currentTemp = parseInt(weatherData.today.temperature);
+    var precipProb = parseFloat(weatherData.today.chanceOfRain);
+    var precipType = weatherData.today.precipType;
+    var windspeed = parseFloat(weatherData.today.windspeed);
+    console.log(precipProb);
     var rand;
     var rand2 = Math.floor(Math.random() * rainWeather.length);
 
@@ -67,8 +70,9 @@ function addWidget(weatherData) {
         $('#ootdPrompt').html(extremeWeather[rand]);
     }
 
-    if ($.inArray(parseInt(skyCode), rainCode) > -1) {
+    if (precipProb > 0.5 && precipType == 'rain') {
         $('#ootdPrompt').append("<br>" + rainWeather[rand2]);
+        console.log(true);
     }
 }
 
