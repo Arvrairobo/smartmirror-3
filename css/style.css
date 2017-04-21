@@ -84,8 +84,9 @@ div#spot8 {
 	font-size: 25px;
 	text-align: right;
 }
-#todayWeatherIcon{
-	height: 30px;
+#weather i {
+  font-size: 25px;
+	margin: 0 10px;
 }
 #weather #forecast {
 	float: right;
@@ -101,12 +102,11 @@ div#spot8 {
 	padding: 0 5px;
 }
 #weather #forecast .col + .col + .col + .col { padding: 0 0 0 5px; margin-right: -5px; }
-#weather #forecast .forecastIcon{
-	height: 15px;
-	margin: 8px 5px;
+#weather #forecast i {
+	margin: 8px 10px;
 }
 
-#today *{
+#today * {
 	line-height: 1;
 	margin: 15px;
 }
@@ -215,7 +215,7 @@ div#spot8 {
 }
 .img-small{
 	height: 50px;
-	width: 50px;	
+	width: 50px;
 	margin: 2.5px;
 }
 .img-large{
