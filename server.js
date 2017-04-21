@@ -16,7 +16,7 @@ var YahooFinanceAPI = require('yahoo-finance-data');
 var yahooAPI = new YahooFinanceAPI();
 
 //node package for weather widget
-var weather = require('weather-js');
+var forecast = require('forecast');
 
 //node package for voice youtube searching
 var youtube = require('youtube-search');
@@ -79,16 +79,48 @@ app.get('/commands', function(req, res){
 });
 
 app.get('/weather', function(req, res) {
-	var zipCode = config.zipCode;
-	var type = config.degreeType;
-
-	if((zipCode !== null) && (type !== null)){
-		weather.find({search: zipCode, degreeType: type}, function(err, result) {
-			if(err) console.log(err);
-			console.log(result);
-			res.send(JSON.stringify(result, null, 2));
-		});
-	}
+	var apiKey = config['darkskyApiKey'];
+	var coor = config['weatherCoordinates'];
+	var weather = new forecast({
+		service: 'darksky',
+		key: apiKey,
+		units: 'fahrenheit',
+		cached: false
+	});
+	
+	weather.get(coor, true,function(err, result){
+		if(err) console.log(err);
+		var weatherObject = {
+			"today": {
+				"temperature": result.currently.temperature,
+				"weatherDescription": result.currently.summary,
+				"icon": result.currently.icon,
+				"channceOfRain": result.currently.precipProbability,
+				"precipType": result.currently.precipType,
+				"windspeed": result.currently.windSpeed
+			},
+			"forecast":[
+				{"day": result.daily.data[0].time,
+				"high": result.daily.data[0].temperatureMax,
+				"low": result.daily.data[0].temperatureMin,
+				"icon":result.daily.data[0].icon,
+				},{"day": result.daily.data[1].time,
+				"high": result.daily.data[1].temperatureMax,
+				"low": result.daily.data[1].temperatureMin,
+				"icon":result.daily.data[1].icon,
+				},{"day": result.daily.data[2].time,
+				"high": result.daily.data[2].temperatureMax,
+				"low": result.daily.data[2].temperatureMin,
+				"icon":result.daily.data[2].icon,
+				},{"day": result.daily.data[3].time,
+				"high": result.daily.data[3].temperatureMax,
+				"low": result.daily.data[3].temperatureMin,
+				"icon":result.daily.data[3].icon,
+				}
+			]
+		}
+		res.send(weatherObject);
+	});
 });
 
 app.get('/news', function(req, res) {
@@ -124,12 +156,13 @@ app.get('/config', function(req, res) {
 app.post('/config', function(req, res) {
 	var newconf = {};
 	newconf.spots = {};
-	newconf.zipCode = req.body.zipCode;
+	newconf.darkskyApiKey = req.body.darkskyApiKey;
 	newconf.newsApiKey = req.body.newsApiKey;
 	newconf.youtubeApiKey = req.body.youtubeApiKey;
 	newconf.flickrApiKey = req.body.flickrApiKey;
 	newconf.flickrSecret = req.body.flickrSecret;
 	newconf.stocksList = req.body.stocksList;
+	newconf.weatherCoordinates = req.body.weatherCoordinates;
 	newconf.spots.spot1 = {module: req.body.spot1, location: "spot1", script: "../widgets/"+req.body.spot1+"/"+req.body.spot1+".js"};
 	newconf.spots.spot2 = {module: req.body.spot2, location: "spot2", script: "../widgets/"+req.body.spot2+"/"+req.body.spot2+".js"};
 	newconf.spots.spot3 = {module: req.body.spot3, location: "spot3", script: "../widgets/"+req.body.spot3+"/"+req.body.spot3+".js"};

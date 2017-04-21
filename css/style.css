@@ -84,9 +84,8 @@ div#spot8 {
 	font-size: 25px;
 	text-align: right;
 }
-#weather i {
-	font-size: 25px;
-	margin: 0 10px;
+#todayWeatherIcon{
+	height: 30px;
 }
 #weather #forecast {
 	float: right;
@@ -102,8 +101,9 @@ div#spot8 {
 	padding: 0 5px;
 }
 #weather #forecast .col + .col + .col + .col { padding: 0 0 0 5px; margin-right: -5px; }
-#weather #forecast i {
-	margin: 8px 10px;
+#weather #forecast .forecastIcon{
+	height: 15px;
+	margin: 8px 5px;
 }
 
 #today *{

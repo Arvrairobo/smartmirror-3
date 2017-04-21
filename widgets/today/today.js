@@ -4,8 +4,8 @@ var monthNames = ["Jan.", "Feb.", "Mar.",
     "Nov.", "Dec."
 ];
 
-var dayOfWeek = ["Mon", "Tues", "Wed",
-    "Thur", "Fri", "Sat", "Sun"
+var dayOfWeek = ["Sun","Mon", "Tues", "Wed",
+    "Thur", "Fri", "Sat"
 ];
 
 function wrapperSetup(){
