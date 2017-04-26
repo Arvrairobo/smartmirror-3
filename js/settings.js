@@ -32,6 +32,7 @@ $(document).ready(function() {
     $('#flickrapi').val(data['flickrApiKey']);
     $('#flickrsecret').val(data['flickrSecret']);
     $('#stockslist').val(data['stocksList'].join());
+    $('#horoscopelist').val(data['horoscopeSigns'].join());
     initselect();
   });
 
@@ -46,6 +47,7 @@ $(document).ready(function() {
           flickrSecret: $('#flickrsecret').val(),
           stocksList: $('#stockslist').val().split(","),
           weatherCoordinates: $('#weatherCoordinates').val().split(","),
+          horoscopeSigns: $('#horoscopelist').val().split(","),
           spot1: $('#spot1').val(), spot2: $('#spot2').val(), spot3: $('#spot3').val(), spot4: $('#spot4').val(),
           spot5: $('#spot5').val(), spot6: $('#spot6').val(), spot7: $('#spot7').val(), spot8: $('#spot8').val()
         },

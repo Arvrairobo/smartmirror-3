@@ -184,6 +184,7 @@ app.post('/config', function(req, res) {
 	newconf.flickrSecret = req.body.flickrSecret;
 	newconf.stocksList = req.body.stocksList;
 	newconf.weatherCoordinates = req.body.weatherCoordinates;
+	newconf.horoscopeSigns = req.body.horoscopeSigns;
 	newconf.spots.spot1 = {module: req.body.spot1, location: "spot1", script: "../widgets/"+req.body.spot1+"/"+req.body.spot1+".js"};
 	newconf.spots.spot2 = {module: req.body.spot2, location: "spot2", script: "../widgets/"+req.body.spot2+"/"+req.body.spot2+".js"};
 	newconf.spots.spot3 = {module: req.body.spot3, location: "spot3", script: "../widgets/"+req.body.spot3+"/"+req.body.spot3+".js"};
