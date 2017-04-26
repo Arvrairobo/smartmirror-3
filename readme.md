@@ -1,6 +1,6 @@
 # S.A.M. (Smart Assistant Mirror)
 
-## Project description here
+## Project Description
 SAM is a customizable smart mirror that combines that power of a
 microcomputer with an everyday household mirror. Using two-way mirror technology, SAM can
 display a dashboard interface through a reflective mirror, presenting users with useful
