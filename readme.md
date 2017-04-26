@@ -28,7 +28,7 @@ technology is through <a href="https://www.talater.com/annyang/" target="_blank"
 To add your very own widget, simply add a folder with your widget's name in the <a href="https://github.com/jmaruiz/smartmirror/tree/master/widgets" target="_blank">/widgets directory</a>.
 In that folder, you will place your js file that will control your widget.
 While making your controller js file, keep in mind that the module wrapper's name and the module value within
-<a href="https://github.com/jmaruiz/smartmirror/blob/master/config.json" target="_blank">config.json</a> file must match in order for the application to render your widget properly. If your widget requires
+<a href="https://github.com/jmaruiz/smartmirror/blob/master/config.json" target="_blank">config.json</a> file must match in order of the application to render your widget properly. If you widget requires
 to utilize any external APIs, this can be done within the <a href="https://github.com/jmaruiz/smartmirror/blob/master/server.js" target="_blank">server.js</a> file. Refer to the given examples within the file.
 
 ## To Do List
