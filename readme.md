@@ -18,18 +18,18 @@ information.
 * **Voice support!** (consumed "welcome" widget)
 
 ## Supported Commands
-Refer to command.json.
+Refer to <a href="https://github.com/jmaruiz/smartmirror/blob/master/commands.json" target="_blank">commands.json</a>.
 
 ## To Extend Voice Support
-To add extra features to the voice support, refer to the file /widgets/voice/voice.js. The current speech-to-text
-technology is through <a href="https://www.talater.com/annyang/">Annyang</a>. The current text-to-speech technology is <a href="https://responsivevoice.org/">ResponsiveVoice.js</a>.
+To add extra features to the voice support, refer to the file <a href="https://github.com/jmaruiz/smartmirror/blob/master/widgets/voice/voice.js" target="_blank">/widgets/voice/voice.js</a>. The current speech-to-text
+technology is through <a href="https://www.talater.com/annyang/" target="_blank">Annyang</a>. The current text-to-speech technology is <a href="https://responsivevoice.org/" target="_blank">ResponsiveVoice.js</a>.
 
 ## How To Add Custom Built Widgets
-To add your very own widget, simply add a folder with your widget's name in the /widgets directory.
+To add your very own widget, simply add a folder with your widget's name in the <a href="https://github.com/jmaruiz/smartmirror/tree/master/widgets" target="_blank">/widgets directory</a>.
 In that folder, you will place your js file that will control your widget.
 While making your controller js file, keep in mind that the module wrapper's name and the module value within
-config.json file must match in order of the application to render your widget properly. If you widget requires
-to utilize any external APIs, this can be done within the server.js file. Refer to the given examples within the file.
+<a href="https://github.com/jmaruiz/smartmirror/blob/master/config.json" target="_blank">config.json</a> file must match in order of the application to render your widget properly. If you widget requires
+to utilize any external APIs, this can be done within the <a href="https://github.com/jmaruiz/smartmirror/blob/master/server.js" target="_blank">server.js</a> file. Refer to the given examples within the file.
 
 ## To Do List
 * Add functionality to voice widget
