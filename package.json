@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jmaruiz/smartmirror#readme",
   "dependencies": {
+    "async": "^2.3.0",
     "body-parser": "^1.17.1",
     "express": "^4.14.0",
     "flickr-sdk": "^2.0.1",

@@ -5,7 +5,8 @@ var options = [
   {"script":"today", "name":"Clock and Date"},
   {"script":"welcome", "name":"Welcome Message"},
   {"script":"ootd", "name":"Outfit of the Day"},
-  {"script":"voice", "name": "Voice Recognition (feedback area)"}
+  {"script":"voice", "name": "Voice Recognition (feedback area)"},
+  {"script":"horoscope", "name": "Horoscope"}
 ];
 
 var config;

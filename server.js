@@ -7,6 +7,7 @@ var bodyParser = require('body-parser')
 var os = require('os');
 var ifaces = os.networkInterfaces();
 var ip = require('ip');
+var async = require('async');
 
 //node package for news widget
 var superagent = require('superagent-cache')();
@@ -138,6 +139,26 @@ app.get('/news', function(req, res) {
 	}
 });
 
+app.get('/horoscope', function(req, res) {
+	var signs = config['horoscopeSigns'];
+	var uri = "http://horoscope-api.herokuapp.com/horoscope/today/"
+	var horoscopeObject = {"entries":[]};
+	var signsProcessed = 0;
+
+	async.forEachOf(signs, function(value, key, callback) {
+		superagent
+		    .get(uri + value)
+		    .end(function(err, response) {
+		        horoscopeObject.entries.push(response.body);
+		        callback();
+		    });
+
+	}, function(err) {
+	    if (err) console.error(err.message);
+	    res.send(horoscopeObject);
+	})
+});
+
 app.get('/stocks', function(req, res) {
 	var stockList = config['stocksList'];
 
@@ -186,6 +207,6 @@ app.get('/ip', function(req, res) {
 });
 
 app.listen(5000, function() {
-	console.log('Server running on port 80!');
-	console.log('Visit http://localhost/ to view.');
+	console.log('Server running on port 5000!');
+	console.log('Visit http://localhost:5000 to view.');
 });

@@ -223,3 +223,16 @@ div#spot8 {
 	width: 300px;
 	margin: 2.5px;
 }
+#horoscope { 
+  max-height: 500px; 
+  padding: 15px;
+}
+#horoscope .hSign {
+  width: 300px;
+  font-size: 30px;
+  font-weight:bolder;
+}
+#horoscope .hText {
+  width: 300px;
+  overflow: hidden;
+}
