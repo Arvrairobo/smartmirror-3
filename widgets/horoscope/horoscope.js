@@ -32,7 +32,7 @@ function addHoroscopeWidget(entries) {
   var i = 0;
   $('#horoscope').append('<div class="hSign"></div><div class="hText"></div>');
   $('#horoscope .hSign').html(entries[i].sunsign.trim().toString().toUpperCase()).addClass(color[entries[i].sunsign]);
-  $('#horoscope .hText').html(entries[i].horoscope.toString().trim());
+  $('#horoscope .hText').html(entries[i].horoscope.toString().replace(/\['/g, '').trim());
   $('#horoscope .hText').fadeIn(250);
 
 
@@ -42,12 +42,8 @@ function addHoroscopeWidget(entries) {
       if (i < entries.length - 1) { i++; } else { i = 0; }
       $('#horoscope .hSign').addClass(color[entries[i].sunsign]);
       $('#horoscope .hSign').html(entries[i].sunsign.trim().toString().toUpperCase());
-      $('#horoscope .hText').html(entries[i].horoscope.toString().trim());
+      $('#horoscope .hText').html(entries[i].horoscope.toString().replace(/\['/g, '').trim());
       $('#horoscope').fadeIn(250);
     });
   }, 10000);
 }
-
-
-
-
