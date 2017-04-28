@@ -265,7 +265,7 @@ function configURL() {
   confirmbeep.play();
   clearFeedbackArea();
   $.get('/ip', function(data) {
-    $('#voice').html("Navigate to <strong>http://" + data + "/settings</strong> on any other device to configure me!");
+    $('#voice').html("Navigate to <strong>http://" + data + ":5000/settings</strong> on any other device to configure me!");
   });
   responsiveVoice.speak("Showing config access point", voicePlaybackPersonel);
 }
