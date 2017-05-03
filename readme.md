@@ -8,6 +8,12 @@ information and widgets such as weather info, calendar appointments, and more. I
 user-friendly configuration system, as well as Wi-Fi connectivity for always up-to- date
 information.
 
+## How to Install
+Install <a href="https://nodejs.org/en/" target="_blank">node.js</a>
+Clone this repository.
+Then navigate to the directory holding the server.js file.
+Execute command: node server.js
+
 ## Widgets
 * news
 * outfit of the day (ootd)
